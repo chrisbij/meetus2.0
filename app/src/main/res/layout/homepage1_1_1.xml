@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Sélectioner une catégorie d'activités :"
+        android:id="@+id/textView"
+        android:textStyle="normal"
+        android:textSize="24dp"
+        android:gravity="center_horizontal"
+        android:layout_above="@+id/relativeLayout"
+        android:layout_alignParentStart="true" />
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/relativeLayout"
+        android:layout_marginTop="15dp"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true">
+
+        <Button
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:text="Vacances"
+            android:id="@+id/vacances"
+            android:paddingTop="5dp"
+            android:drawableTop="@drawable/beach"
+            android:textColor="@android:color/white"
+            android:background="#FF9300"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true" />
+
+        <Button
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:text="Photos"
+            android:id="@+id/button3"
+            android:layout_marginStart="15dp"
+            android:paddingTop="5dp"
+            android:drawableTop="@drawable/camera"
+            android:textColor="@android:color/white"
+            android:background="#FF9300"
+            android:layout_alignTop="@+id/vacances"
+            android:layout_toRightOf="@+id/vacances"/>
+
+        <Button
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:text="Shopping"
+            android:id="@+id/button8"
+            android:layout_marginTop="10dp"
+            android:paddingTop="5dp"
+            android:drawableTop="@drawable/shopping"
+            android:textColor="@android:color/white"
+            android:background="#FF9300"
+            android:layout_below="@+id/vacances"
+            android:layout_alignStart="@+id/vacances" />
+
+        <Button
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:text="Sport"
+            android:id="@+id/button9"
+            android:paddingTop="5dp"
+            android:drawableTop="@drawable/sport"
+            android:textColor="@android:color/white"
+            android:background="#FF9300"
+            android:layout_alignTop="@+id/button8"
+            android:layout_alignStart="@+id/button3" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="30dp">
+
+        <Button
+            android:id="@+id/annulerHP111"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:text="Annuler"
+            android:textSize="24dp"
+            android:textColor="@android:color/white"
+            android:background="@android:color/holo_red_dark" />
+
+        <Button
+            android:id="@+id/retourHP111"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:text="Retour"
+            android:textSize="24dp"
+            android:textColor="@android:color/white"
+            android:background="@android:color/holo_blue_dark"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true" />
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

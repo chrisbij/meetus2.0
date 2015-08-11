@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">meetUS</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="image_test">imageTest</string>
+    <string name="login">Votre identifiant</string>
+    <string name="password">Votre mot de passe</string>
+    <string name="connexion">Connexion</string>
+    <string name="img_profil">Image profil</string>
+    <string name="villeSortie">Où sortir</string>
+    <string name="title_activity_choix_activite">ChoixActivite</string>
+
+</resources>

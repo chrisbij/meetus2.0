@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="5dp" >
+    
+    
+    <LinearLayout android:id="@+id/picContent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="2dp"
+        android:layout_alignParentLeft="true"
+        android:background="@drawable/image_bg">
+        
+        <ImageView 
+            android:id="@+id/picParty"
+            android:layout_width="70dip"
+            android:layout_height="70dip"
+            android:src="@drawable/android"
+            android:contentDescription="@string/img_profil" />
+        
+    </LinearLayout>
+    
+    <TextView 
+        android:id="@+id/partyDescrib"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		android:layout_alignParentRight="true"
+        />
+
+</RelativeLayout>
