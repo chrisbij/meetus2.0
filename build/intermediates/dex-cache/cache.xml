@@ -2,25 +2,25 @@
 <items version="2" >
 
     <item
-        jar="C:\Users\bijou\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\22.2.1\support-annotations-22.2.1.jar"
+        jar="C:\Users\Laura\Desktop\meetUS\meetUS\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.1\jars\libs\internal_impl-22.2.1.jar"
         jumboMode="false"
-        revision="22.0.1"
-        sha1="61a0ff5c29295ec56d7e0bd3d25d95dbf71b4b2b">
-        <dex dex="C:\Users\bijou\Desktop\meetUS\app\build\intermediates\pre-dexed\release\support-annotations-22.2.1-4a4c91f09c85a76947c20e1eafaae46514d86841.jar" />
-    </item>
-    <item
-        jar="C:\Users\bijou\Desktop\meetUS\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.1\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="f8efd0096475e0daf054267b61544e10dc776503">
-        <dex dex="C:\Users\bijou\Desktop\meetUS\app\build\intermediates\pre-dexed\release\classes-377359967dd5855ec2c1c94b81c52dc8203f8495.jar" />
-    </item>
-    <item
-        jar="C:\Users\bijou\Desktop\meetUS\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.1\jars\libs\internal_impl-22.2.1.jar"
-        jumboMode="false"
-        revision="22.0.1"
+        revision="19.1.0"
         sha1="c471eaaba13ff64f6e0383d1c30a9cdc9a97efeb">
-        <dex dex="C:\Users\bijou\Desktop\meetUS\app\build\intermediates\pre-dexed\release\internal_impl-22.2.1-e6014c0fdb146c043cdd12bec8de1cc949a7a479.jar" />
+        <dex dex="C:\Users\Laura\Desktop\meetUS\meetUS\app\build\intermediates\pre-dexed\debug\internal_impl-22.2.1-f42aec6f1d3366fda562d0d419301a571cc42a1c.jar" />
+    </item>
+    <item
+        jar="C:\Users\Laura\Desktop\meetUS\meetUS\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.1\jars\classes.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="f8efd0096475e0daf054267b61544e10dc776503">
+        <dex dex="C:\Users\Laura\Desktop\meetUS\meetUS\app\build\intermediates\pre-dexed\debug\classes-f0c12ce9ca01448d9cb3a57de58b38a7ff9b6935.jar" />
+    </item>
+    <item
+        jar="C:\Users\Laura\AppData\Local\Android\android-sdk\extras\android\m2repository\com\android\support\support-annotations\22.2.1\support-annotations-22.2.1.jar"
+        jumboMode="false"
+        revision="19.1.0"
+        sha1="61a0ff5c29295ec56d7e0bd3d25d95dbf71b4b2b">
+        <dex dex="C:\Users\Laura\Desktop\meetUS\meetUS\app\build\intermediates\pre-dexed\debug\support-annotations-22.2.1-b661af0eeef5dc0a51815016a11b0a619be85001.jar" />
     </item>
 
 </items>

@@ -4,10 +4,11 @@
     android:versionCode="1"
     android:versionName="1.0" >
 
+    <uses-sdk
+        android:minSdkVersion="11"
+        android:targetSdkVersion="22" />
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-
 
     <application
         android:allowBackup="true"
@@ -17,8 +18,7 @@
         <activity
             android:name=".MainActivity"
             android:configChanges="orientation|keyboardHidden"
-            android:label="@string/app_name"
-            android:screenOrientation="portrait">
+            android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -27,60 +27,41 @@
         </activity>
         <activity
             android:name="vue.MainVue"
-            android:windowSoftInputMode="stateHidden"
-            android:screenOrientation="portrait">
+            android:configChanges="keyboardHidden|orientation|screenSize" >
         </activity>
-        <activity android:name="vue.createActivites.CreateParty"
-            android:windowSoftInputMode="stateHidden"
-            android:screenOrientation="portrait" >
+        <activity android:name="vue.AccueilVue" >
         </activity>
-        <activity android:name="vue.InfoPary"
-            android:screenOrientation="portrait" >
+        <activity android:name="vue.CreateParty" >
         </activity>
-        <activity android:name="vue.createActivites.ChoixActivites"
-            android:screenOrientation="portrait" >
+        <activity android:name="vue.InfoPary" >
         </activity>
         <activity
-            android:name="vue.rechercheActivite.Homepage1_0"
-            android:screenOrientation="portrait">
+            android:name="vue.ChoixActivite" >
         </activity>
         <activity
-            android:name="vue.rechercheActivite.Homepage1_1_1"
-            android:screenOrientation="portrait">
+            android:name="vue.Homepage1_0">
         </activity>
         <activity
-            android:name="vue.rechercheActivite.Homepage1_1_2"
-            android:screenOrientation="portrait">
+            android:name="vue.Homepage1_1_1">
         </activity>
         <activity
-            android:name="vue.rechercheActivite.SelectDay"
-            android:windowSoftInputMode="stateHidden"
-            android:screenOrientation="portrait">
+            android:name="vue.Homepage1_1_2">
         </activity>
         <activity
-            android:name="vue.rechercheActivite.FragmentsSliderActivity"
-            android:screenOrientation="portrait">
+            android:name="vue.SelectDay"
+            android:windowSoftInputMode="stateHidden">
         </activity>
         <activity
-            android:name="vue.createUser.SelectSex"
-            android:screenOrientation="portrait">
+            android:name="vue.FragmentsSliderActivity">
         </activity>
         <activity
-            android:name="vue.createUser.CreateUser"
-            android:windowSoftInputMode="stateHidden"
-            android:screenOrientation="portrait">
+            android:name="vue.SelectSex">
         </activity>
         <activity
-            android:name="vue.Agenda"
-            android:screenOrientation="portrait">
+            android:name="vue.CreateUser">
         </activity>
         <activity
-            android:name=".Test"
-            android:screenOrientation="portrait">
-        </activity>
-        <activity
-            android:name="vue.profil.Home_profil"
-            android:screenOrientation="portrait">
+            android:name="vue.Agenda">
         </activity>
     </application>
 

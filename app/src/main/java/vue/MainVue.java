@@ -2,66 +2,63 @@ package vue;
 
 
 
-import java.net.MalformedURLException;
 import java.util.ArrayList;
 
 
-import com.example.meetus.MainActivity;
+
+
 import com.example.meetus.R;
 
 import controller.MyTask;
-import vue.profil.Home_profil;
-import vue.rechercheActivite.Homepage1_0;
 
-import android.annotation.TargetApi;
 import android.app.ActionBar;
-import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.ProgressDialog;
-import android.content.Context;
+import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.Toast;
 
-public class MainVue extends Activity {
+public class MainVue extends AccueilVue {
 
-	public Activity activity = getParent();
+	
 	public String srcPic;
+	public Bitmap bm; 
 	public Drawable dra;
 	public MyTask asyncTask;
 	ImageView picProfil;
-	Button newSearch, refresh, agenda, activite, profil;
+	Button newSearch, refresh, agenda, infoParty;
 	public int annee;
 	public ListView list;
 	public int jour;
 	public ArrayList<String> text = new ArrayList<String>();
 	public ArrayList<Bitmap> image = new ArrayList<Bitmap>() ;
 	public int mois;
-	public Context context;
-	String nomPrenomUser;
 
+	String nomPrenomUser;
 	
 	
-	@TargetApi(Build.VERSION_CODES.LOLLIPOP)
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		
 		setContentView(R.layout.activity_main);
 
-		context = this;
+		Intent intent = getIntent();
 
-		activite = (Button)findViewById(R.id.activity);
-		activite.setBackground(getResources().getDrawable(R.drawable.btn_grey_selected, null));
+
+		nomPrenomUser = intent.getStringExtra("Nom") + intent.getStringExtra("Prenom");
 
 		newSearch = (Button)findViewById(R.id.newSearch);
 		refresh = (Button)findViewById(R.id.actualiser);
@@ -72,19 +69,12 @@ public class MainVue extends Activity {
 		agenda = (Button)findViewById(R.id.agenda);
 		agenda.setOnClickListener(openAgenda);
 
-		profil = (Button)findViewById(R.id.profil);
-		profil.setOnClickListener(openProfil);
-
 		list = (ListView)findViewById(R.id.lvListe);
 			
-		//picProfil = (ImageView)findViewById(R.id.list_image);
-
-		try {
-			asyncTask = new MyTask(context, list);
-		} catch (MalformedURLException e) {
-			e.printStackTrace();
-		}
-
+		picProfil = (ImageView)findViewById(R.id.list_image);
+	
+		asyncTask = new MyTask(context, list);
+		
 		asyncTask.execute("");
 		
 		
@@ -130,9 +120,7 @@ public class MainVue extends Activity {
 				alertDialogBuilder.setPositiveButton("Oui", new DialogInterface.OnClickListener() {
 					@Override
 					public void onClick(DialogInterface dialogInterface, int i) {
-						Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-						intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-						startActivity(intent);
+						MainVue.this.finish();
 					}
 				});
 
@@ -155,16 +143,6 @@ public class MainVue extends Activity {
 		@Override
 		public void onClick(View view) {
 			Intent intent = new Intent(getApplicationContext(), Agenda.class);
-			intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-			startActivity(intent);
-		}
-	};
-
-	public OnClickListener openProfil = new OnClickListener() {
-		@Override
-		public void onClick(View v) {
-			Intent intent = new Intent(getApplicationContext(), Home_profil.class);
-			intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
 			startActivity(intent);
 		}
 	};

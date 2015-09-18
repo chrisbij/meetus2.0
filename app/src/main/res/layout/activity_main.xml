@@ -12,6 +12,8 @@
         android:id="@+id/lvListe"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
         android:layout_weight="0.80"
         android:background="@android:color/background_light"
         android:divider="#b5b5b5"
@@ -52,10 +54,9 @@
             android:layout_gravity="center_vertical"
             android:layout_weight="0.33"
             android:text="Rechercher"
-            android:background="@drawable/btn_bleu_main"
+            android:background="#183251"
             android:textColor="@android:color/white"
             android:fontFamily="sans-serif-light"
-            android:textStyle="bold"
             android:padding="10dp"
             android:drawableLeft="@android:drawable/ic_menu_search"
             android:textAlignment="center" />
@@ -72,10 +73,9 @@
             android:layout_height="50dp"
             android:layout_weight="0.33"
             android:text="Actualiser"
-            android:background="@drawable/btn_bleu_main"
+            android:background="#183251"
             android:textColor="@android:color/white"
             android:fontFamily="sans-serif-light"
-            android:textStyle="bold"
             android:padding="10dp"
             android:textAlignment="center"
             android:layout_gravity="center_vertical" />
@@ -86,27 +86,24 @@
         android:id="@+id/linearLayout2"
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="45dp"
+        android:layout_height="50dp"
         android:layout_alignParentBottom="true"
         android:layout_weight="0.10"
         android:layout_centerHorizontal="true">
 
         <Button
-            android:id="@+id/activity"
             android:layout_width="0dp"
             android:layout_weight="0.3"
             android:layout_marginBottom="1dp"
             android:layout_marginLeft="4dp"
             android:layout_marginRight="4dp"
             android:textColor="@android:color/white"
-            android:background="@drawable/btn_bleu_main"
+            android:background="@drawable/bouton_menu_bas"
             android:text="Activités"
             android:fontFamily="sans-serif-light"
-            android:textStyle="bold"
             android:layout_height="match_parent" />
 
         <Button
-            android:id="@+id/profil"
             android:layout_width="0dp"
             android:layout_weight="0.3"
             android:layout_marginBottom="1dp"
@@ -115,8 +112,7 @@
             android:text="Profil"
             android:textColor="@android:color/white"
             android:fontFamily="sans-serif-light"
-            android:textStyle="bold"
-            android:background="@drawable/btn_bleu_main"
+            android:background="@drawable/bouton_menu_bas"
             android:layout_height="match_parent" />
         <Button
             android:id="@+id/agenda"
@@ -127,8 +123,7 @@
             android:layout_marginRight="4dp"
             android:textColor="@android:color/white"
             android:fontFamily="sans-serif-light"
-            android:textStyle="bold"
-            android:background="@drawable/btn_bleu_main"
+            android:background="@drawable/bouton_menu_bas"
             android:text="Agenda"
             android:layout_height="match_parent" />
 
