@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:text="Culturels"
+        android:id="@+id/buttonVacance"
+        android:paddingTop="5dp"
+        android:drawableTop="@drawable/hotel"
+        android:textColor="@android:color/white"
+        android:background="#b9121b"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:text="Restaurant"
+        android:id="@+id/button3"
+        android:layout_marginStart="15dp"
+        android:paddingTop="5dp"
+        android:drawableTop="@drawable/restaurant"
+        android:textColor="@android:color/white"
+        android:background="#ff0099cc"
+        android:layout_alignTop="@+id/buttonVacance"
+        android:layout_toRightOf="@+id/buttonVacance"/>
+
+    <Button
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:text="Fêtes foraines"
+        android:id="@+id/button8"
+        android:layout_marginTop="10dp"
+        android:paddingTop="5dp"
+        android:drawableTop="@drawable/foraine"
+        android:textColor="@android:color/white"
+        android:background="#05966d"
+        android:layout_below="@+id/buttonVacance"
+        android:layout_alignStart="@+id/buttonVacance" />
+
+    <Button
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:text="Sport"
+        android:id="@+id/button9"
+        android:paddingTop="5dp"
+        android:drawableTop="@drawable/sport"
+        android:textColor="@android:color/white"
+        android:background="#FF9300"
+        android:layout_alignTop="@+id/button8"
+        android:layout_alignStart="@+id/button3" />
+
+</RelativeLayout>

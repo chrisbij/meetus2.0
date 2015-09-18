@@ -11,69 +11,21 @@
         android:textStyle="normal"
         android:textSize="24dp"
         android:gravity="center_horizontal"
-        android:layout_above="@+id/relativeLayout"
+        android:layout_above="@+id/viewPager"
         android:layout_alignParentStart="true" />
 
 
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/relativeLayout"
+    <android.support.v4.view.ViewPager xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="255dp"
+        android:layout_height="255dp"
         android:layout_marginTop="15dp"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true">
+        android:layout_centerHorizontal="true"
+        android:id="@+id/viewPager">
 
-        <Button
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            android:text="Vacances"
-            android:id="@+id/button"
-            android:paddingTop="5dp"
-            android:drawableTop="@drawable/beach"
-            android:textColor="@android:color/white"
-            android:background="#FF9300"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentStart="true" />
+    </android.support.v4.view.ViewPager>
 
-        <Button
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            android:text="Photos"
-            android:id="@+id/button3"
-            android:layout_marginStart="15dp"
-            android:paddingTop="5dp"
-            android:drawableTop="@drawable/camera"
-            android:textColor="@android:color/white"
-            android:background="#FF9300"
-            android:layout_alignTop="@+id/button"
-            android:layout_toRightOf="@+id/button"/>
 
-        <Button
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            android:text="Shopping"
-            android:id="@+id/button8"
-            android:layout_marginTop="10dp"
-            android:paddingTop="5dp"
-            android:drawableTop="@drawable/shopping"
-            android:textColor="@android:color/white"
-            android:background="#FF9300"
-            android:layout_below="@+id/button"
-            android:layout_alignStart="@+id/button" />
-
-        <Button
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            android:text="Sport"
-            android:id="@+id/button9"
-            android:paddingTop="5dp"
-            android:drawableTop="@drawable/sport"
-            android:textColor="@android:color/white"
-            android:background="#FF9300"
-            android:layout_alignTop="@+id/button8"
-            android:layout_alignStart="@+id/button3" />
-
-    </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="300dp"

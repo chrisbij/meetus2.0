@@ -8,7 +8,7 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
         android:id="@+id/entete"
-        android:background="@android:color/holo_green_dark">
+        android:background="@android:color/holo_blue_dark">
 
         <model.CircleView
             android:layout_width="wrap_content"
@@ -20,7 +20,7 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/imgEntete"
+            android:id="@+id/imageView"
             android:background="@drawable/shop"
             android:layout_centerVertical="true"
             android:layout_centerHorizontal="true" />
@@ -33,8 +33,7 @@
         android:id="@+id/scrollView"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        android:layout_below="@+id/entete"
-        android:paddingBottom="10dp">
+        android:layout_below="@+id/entete">
 
 
         <RelativeLayout
@@ -47,73 +46,53 @@
                 android:layout_height="290dp"
                 android:id="@+id/relativeLayout"
                 android:layout_alignParentTop="true"
-                android:layout_alignStart="@+id/relativeLayout1"
-                android:layout_alignEnd="@+id/relativeLayout1">
+                android:layout_alignParentStart="true">
 
-                <RadioGroup
-                    android:id="@+id/radioGroup"
-                    android:layout_width="match_parent"
+                <RadioButton
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
+                    android:id="@+id/choixJour"
                     android:layout_alignParentTop="true"
-                    android:layout_alignParentStart="true">
-
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/choixJour"
-                        android:checked="false"
-                        android:text="Selectioner un jour"
-                        android:fontFamily="sans-serif-light"
-                        android:onClick="onRadioButtonClicked" />
-
-
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Ou une période"
-                        android:id="@+id/choixPeriode"
-                        android:fontFamily="sans-serif-light"
-                        android:layout_marginStart="20dp"
-                        android:checked="false"
-                        android:onClick="onRadioButtonClicked"/>
-
-                </RadioGroup>
-
+                    android:layout_alignParentStart="true"
+                    android:checked="false"
+                    android:text="Selectioner un jour" />
 
 
                 <Spinner
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/jours"
-                    android:fontFamily="sans-serif-light"
-                    android:layout_below="@+id/radioGroup"
-                    android:layout_alignStart="@+id/joursIntervalDeb"/>
+                    android:layout_below="@+id/choixJour" />
 
                 <Spinner
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/mois"
-                    android:fontFamily="sans-serif-light"
-                    android:layout_alignStart="@id/moisIntervalDeb"
+                    android:layout_marginLeft="80dp"
                     android:layout_alignTop="@+id/jours" />
 
                 <Spinner
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/annees"
-                    android:fontFamily="sans-serif-light"
                     android:layout_alignTop="@id/mois"
-                    android:layout_alignStart="@id/anneesIntervalDeb"/>
+                    android:layout_marginLeft="220dp"/>
 
 
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ou une période"
+                    android:id="@+id/radioButton2"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginRight="10dp"
+                    android:checked="false" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:text="Du :"
-                    android:fontFamily="sans-serif-light"
                     android:id="@+id/textView6"
                     android:layout_alignBottom="@+id/joursIntervalDeb"
                     android:layout_alignParentStart="true"
@@ -124,17 +103,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/joursIntervalDeb"
-                    android:fontFamily="sans-serif-light"
                     android:layout_below="@+id/jours"
-                    android:layout_marginLeft="10dp"
                     android:layout_toRightOf="@+id/textView6"/>
 
                 <Spinner
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/moisIntervalDeb"
-                    android:fontFamily="sans-serif-light"
-                    android:layout_marginLeft="10dp"
                     android:layout_toEndOf="@+id/joursIntervalDeb"
                     android:layout_alignTop="@+id/joursIntervalDeb" />
 
@@ -142,8 +117,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/anneesIntervalDeb"
-                    android:fontFamily="sans-serif-light"
-                    android:layout_marginLeft="10dp"
                     android:layout_alignTop="@id/moisIntervalDeb"
                     android:layout_toEndOf="@+id/moisIntervalDeb"/>
 
@@ -153,7 +126,6 @@
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:text="Au :"
-                    android:fontFamily="sans-serif-light"
                     android:id="@+id/textView7"
                     android:layout_alignBottom="@+id/joursIntervalFin"
                     android:layout_alignParentStart="true"
@@ -165,7 +137,6 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/joursIntervalFin"
                     android:layout_marginTop="20dp"
-                    android:fontFamily="sans-serif-light"
                     android:layout_below="@+id/joursIntervalDeb"
                     android:layout_toRightOf="@+id/textView7"/>
 
@@ -173,7 +144,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/moisIntervalFin"
-                    android:fontFamily="sans-serif-light"
                     android:layout_toEndOf="@+id/joursIntervalFin"
                     android:layout_alignTop="@+id/joursIntervalFin" />
 
@@ -181,7 +151,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/anneesIntervalFin"
-                    android:fontFamily="sans-serif-light"
                     android:layout_alignTop="@id/moisIntervalFin"
                     android:layout_toEndOf="@+id/moisIntervalFin"/>
 
@@ -199,37 +168,32 @@
                         android:layout_height="wrap_content"
                         android:id="@+id/editText"
                         android:hint="Pays..."
-                        android:fontFamily="sans-serif-light"
                         android:layout_margin="2dp"
                         android:layout_gravity="bottom"
-                        android:layout_weight="0.4" />
+                        android:layout_weight="0.3" />
 
                     <EditText
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/editText2"
                         android:hint="Ville..."
-                        android:fontFamily="sans-serif-light"
                         android:layout_gravity="bottom"
                         android:layout_margin="2dp"
-                        android:layout_weight="0.4" />
+                        android:layout_weight="0.3" />
 
                     <EditText
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/editText3"
-                        android:hint="ex:94600"
-                        android:fontFamily="sans-serif-light"
+                        android:hint="Code postale..."
                         android:layout_gravity="bottom"
                         android:layout_margin="2dp"
-                        android:layout_weight="0" />
+                        android:layout_weight="0.3" />
                 </LinearLayout>
             </RelativeLayout>
 
             <RelativeLayout
-                android:id="@+id/relativeLayout1"
-                android:layout_width="match_parent"
-                android:layout_marginRight="20dp"
+                android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
@@ -238,11 +202,10 @@
                 android:layout_marginBottom="10dp">
 
                 <Button
-                    android:id="@+id/annulerSelectDay"
+                    android:id="@+id/annulerHP111"
                     android:layout_width="130dp"
                     android:layout_height="wrap_content"
                     android:text="Annuler"
-                    android:fontFamily="sans-serif-light"
                     android:textSize="24dp"
                     android:textColor="@android:color/white"
                     android:background="@android:color/holo_red_dark" />
@@ -252,7 +215,6 @@
                     android:layout_width="130dp"
                     android:layout_height="wrap_content"
                     android:text="Valider"
-                    android:fontFamily="sans-serif-light"
                     android:textSize="24dp"
                     android:textColor="@android:color/white"
                     android:background="@android:color/holo_green_dark"

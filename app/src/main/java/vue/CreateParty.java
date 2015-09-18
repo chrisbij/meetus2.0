@@ -6,6 +6,7 @@ import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.TimePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -13,16 +14,27 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TimePicker;
+import android.widget.Toast;
+
+import org.apache.http.NameValuePair;
+import org.apache.http.message.BasicNameValuePair;
+
+import java.util.ArrayList;
+
+import controller.CreatePartyController;
 
 public class CreateParty extends Activity {
 
-	
+    private ArrayList<NameValuePair> arrayList;
+
 	private int annee;
 	private int mois;
 	private int jour;
 	private int hour;
 	private int minute;
-	
+
+    public int idErrorMessage;
+
 	public EditText nameParty;
 	public EditText nameOrganizer;
 	public EditText adressParty;
@@ -33,14 +45,27 @@ public class CreateParty extends Activity {
 	public EditText heureParty;
 	public Button heurePickerParty;
 	public String resultDatePickerParty;
+
+	public Button selectCatParty;
+
+	public Button confirm;
+
+	Activity activity;
+
+    CreatePartyController createPartyController;
 	
 	
 	
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		
+
+	 activity = this;
+
+
+
 		setContentView(R.layout.create_party);
-		
+
+
 		nameParty = (EditText)findViewById(R.id.nameParty);
 		adressParty = (EditText)findViewById(R.id.adressParty);
 		cpParty = (EditText)findViewById(R.id.cpParty);
@@ -50,15 +75,78 @@ public class CreateParty extends Activity {
 		heureParty = (EditText)findViewById(R.id.heureParty);
 		heurePickerParty = (Button)findViewById(R.id.heurePickerButton);
 		
-
+		selectCatParty = (Button)findViewById(R.id.buttonSelectCat);
 		
 		datePickerParty.setOnClickListener(choixJour);
 		heurePickerParty.setOnClickListener(choixHeure);
-	
+
+		confirm = (Button)findViewById(R.id.confirmButton);
+
+		confirm.setOnClickListener(createActivite);
+
+        createPartyController = new CreatePartyController(activity);
 	}
 	
 	
-	
+
+	public OnClickListener createActivite = new OnClickListener() {
+		@Override
+		public void onClick(View view) {
+
+
+            if(!nameParty.getText().toString().equals("")){
+                createPartyController.setLibelleActivite(nameParty.getText().toString());
+            }else{
+                Toast erreur = Toast.makeText(getApplicationContext(), "Veuillez renseigner un titre pour votre activité", Toast.LENGTH_SHORT);
+                erreur.show();
+                return;
+            }
+
+            if(!adressParty.getText().toString().equals("")){
+                createPartyController.setAdressActivite(adressParty.getText().toString());
+            }else{
+                Toast erreur = Toast.makeText(getApplicationContext(), "Veuillez saisir une adresse pour votre activité", Toast.LENGTH_SHORT);
+                erreur.show();
+                return;
+            }
+
+           if(!cpParty.getText().toString().equals("")){
+               createPartyController.setCpActivite(cpParty.getText().toString());
+            }else{
+                Toast erreur = Toast.makeText(getApplicationContext(), "Veuillez saisir un code postale", Toast.LENGTH_SHORT);
+                erreur.show();
+                return;
+            }
+
+            if(!cityParty.getText().toString().equals("")){
+                createPartyController.setVilleActivite(cityParty.getText().toString());
+            }else{
+                Toast erreur = Toast.makeText(getApplicationContext(), "Veuillez saisir une ville", Toast.LENGTH_SHORT);
+                erreur.show();
+                return;
+            }
+
+            if(!dateParty.getText().toString().equals("")){
+                createPartyController.setDateActivite(dateParty.getText().toString());
+            }else{
+                Toast erreur = Toast.makeText(getApplicationContext(), "Veuillez saisir une date", Toast.LENGTH_SHORT);
+                erreur.show();
+                return;
+            }
+
+            if(!heureParty.getText().toString().equals("")){
+                createPartyController.setHeureActivite(heureParty.getText().toString());
+            }else{
+                Toast erreur = Toast.makeText(getApplicationContext(), "Veuillez saisir une heure", Toast.LENGTH_SHORT);
+                erreur.show();
+                return;
+            }
+
+           createPartyController.requestCreateActivite();
+
+		}
+	};
+
 public OnClickListener choixJour = new OnClickListener() {
 		
 		@SuppressWarnings("deprecation")
@@ -97,11 +185,12 @@ public OnClickListener choixHeure = new OnClickListener() {
 		public void onDateSet(DatePicker view, int year, int monthOfYear,
 				int dayOfMonth) {
 			// TODO Auto-generated method stub
+
 			annee=year;
 			mois=monthOfYear;
 			jour=dayOfMonth;
 			
-			dateParty.setText(jour+"/"+mois+"/"+annee);
+			dateParty.setText(annee+"-"+mois+"-"+jour);
 		}
 	};
 		
@@ -115,7 +204,7 @@ public OnClickListener choixHeure = new OnClickListener() {
 			hour = hourOfDay;
 			CreateParty.this.minute = minute;
 			
-			heureParty.setText("\u00e0 " +hour+"h"+CreateParty.this.minute);
+			heureParty.setText("" +hour+"h"+CreateParty.this.minute);
 		}
 	};
 	

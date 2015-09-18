@@ -48,7 +48,20 @@
             android:name="vue.Homepage1_1_2">
         </activity>
         <activity
-            android:name="vue.SelectDay">
+            android:name="vue.SelectDay"
+            android:windowSoftInputMode="stateHidden">
+        </activity>
+        <activity
+            android:name="vue.FragmentsSliderActivity">
+        </activity>
+        <activity
+            android:name="vue.SelectSex">
+        </activity>
+        <activity
+            android:name="vue.CreateUser">
+        </activity>
+        <activity
+            android:name="vue.Agenda">
         </activity>
     </application>
 

@@ -52,7 +52,7 @@ public class Homepage1_0 extends MainActivity {
         public void onClick(View view) {
 
             try{
-                Intent intent = new Intent(getApplicationContext(), Homepage1_1_1.class);
+                Intent intent = new Intent(getApplicationContext(), FragmentsSliderActivity.class);
                 startActivity(intent);
 
             }catch (Exception e){

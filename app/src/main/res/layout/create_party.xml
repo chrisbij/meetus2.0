@@ -2,161 +2,229 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginRight="27dp" >
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
+    android:paddingTop="10dp">
 
-    <TextView
-        android:id="@+id/textView1"
+    <RelativeLayout
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/choixActivite"
+        android:layout_centerHorizontal="true">
+
+        <Button
+            android:id="@+id/buttonSelectCat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:text="Choisir une activité "/>
+
+    </RelativeLayout>
+
+    <ScrollView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="27dp"
-        android:layout_marginTop="19dp"
-        android:text="Titre de la soirée" />
+        android:layout_height="match_parent"
+        android:layout_marginTop="60dp"
+        android:id="@+id/scrollView2">
 
-    <EditText
-        android:id="@+id/nameParty"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView1"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/textView1"
-        android:ems="10" >
-    </EditText>
-    
-    <View	
-        android:id="@+id/trait"
-    	android:layout_width="fill_parent"
-        android:layout_height="1px"
-        android:background="#FF909090"
-        android:layout_marginLeft="25dp"
-        android:layout_below="@+id/nameParty" />
-    
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/relativeLayoutParty">
 
-    <EditText
-        android:id="@+id/adressParty"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/TextView01"
-        android:layout_below="@+id/TextView01"
-        android:ems="10"
-        android:inputType="textPostalAddress" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/infoActivite">
 
-    <TextView
-        android:id="@+id/TextView01"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/nameParty"
-        android:layout_below="@+id/trait"
-        android:layout_marginTop="25dp"
-        android:text="Lieu de rendez-vous(Bar, restau, chicha...)" />
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:text="Titre de la soirée"
+                android:fontFamily="sans-serif-light" />
 
-    <EditText
-        android:id="@+id/cpParty"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/adressParty"
-        android:layout_below="@+id/adressParty"
-        android:layout_marginTop="17dp"
-        android:ems="10"
-        android:textStyle="italic"
-        android:inputType="number"
-        android:textSize="12sp"
-        android:hint="Code postal" />
+            <EditText
+                android:id="@+id/nameParty"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/textView1"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/textView1"
+                android:fontFamily="sans-serif-light"
+                android:ems="10"
+                android:text="Musique">
+            </EditText>
 
-    <EditText
-        android:id="@+id/cityParty"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/cpParty"
-        android:layout_alignRight="@+id/adressParty"
-        android:ems="10"
-        android:textStyle="italic"
-        android:textSize="12sp"
-        android:hint="Ville"
-        android:inputType="phone" />
+            <View
+                android:id="@+id/trait"
+                android:layout_width="fill_parent"
+                android:layout_height="1px"
+                android:background="#FF909090"
+                android:layout_alignStart="@id/nameParty"
+                android:layout_below="@+id/nameParty" />
+            <TextView
+                android:id="@+id/TextView01"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/nameParty"
+                android:layout_below="@+id/trait"
+                android:fontFamily="sans-serif-light"
+                android:layout_marginTop="25dp"
+                android:text="Lieu de rendez-vous(Bar, restau, chicha...)" />
 
-    <Button
-        android:id="@+id/heurePickerButton"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
-        android:background="@drawable/time"
-        android:layout_alignBottom="@+id/datePickerButton"
-        android:layout_alignRight="@+id/cityParty"
-        android:text="" />
+            <EditText
+                android:id="@+id/adressParty"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/TextView01"
+                android:layout_below="@+id/TextView01"
+                android:ems="10"
+                android:inputType="textPostalAddress"
+                android:fontFamily="sans-serif-light"
+                android:text="4 Rue Henri Babusse" />
 
-    <EditText
-        android:id="@+id/commentParty"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView2"
-        android:layout_alignRight="@+id/heurePickerButton"
-        android:layout_below="@+id/textView2"
-        android:layout_marginTop="16dp"
-        android:ems="10"
-        android:minHeight="100dp"
-        android:inputType="text|textLongMessage" />
 
-    <Button
-        android:id="@+id/deleteButton"
-        android:layout_width="120dp"
+
+            <EditText
+                android:id="@+id/cpParty"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/adressParty"
+                android:layout_below="@+id/adressParty"
+                android:layout_marginTop="10dp"
+                android:ems="10"
+                android:textStyle="italic"
+                android:inputType="number"
+                android:fontFamily="sans-serif-light"
+                android:textSize="12sp"
+                android:text="94600" />
+
+            <EditText
+                android:id="@+id/cityParty"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/cpParty"
+                android:layout_alignRight="@+id/adressParty"
+                android:ems="10"
+                android:textStyle="italic"
+                android:textSize="12sp"
+                android:fontFamily="sans-serif-light"
+                android:inputType="text"
+                android:text="Choisy le roi" />
+
+            <EditText
+                android:id="@+id/dateParty"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:layout_marginTop="40dp"
+                android:textStyle="italic"
+                android:fontFamily="sans-serif-light"
+                android:textSize="12sp"
+                android:inputType="date"
+                android:layout_below="@+id/cpParty"
+                android:layout_alignParentStart="true"
+                android:text="2015-09-18" />
+
+
+            <Button
+                android:id="@+id/datePickerButton"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:background="@drawable/calendar"
+                android:text=""
+                android:layout_above="@+id/textView2"
+                android:layout_toEndOf="@+id/dateParty" />
+
+            <EditText
+                android:id="@+id/heureParty"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:textStyle="italic"
+                android:fontFamily="sans-serif-light"
+                android:textSize="12sp"
+                android:inputType="date"
+                android:layout_above="@+id/textView2"
+                android:layout_toStartOf="@+id/heurePickerButton"
+                android:text="17h4" />
+
+            <Button
+                android:id="@+id/heurePickerButton"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:background="@drawable/time"
+                android:text=""
+                android:layout_alignTop="@+id/heureParty"
+                android:layout_alignEnd="@+id/cityParty"/>
+
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="Description"
+                android:fontFamily="sans-serif-light"
+                android:layout_below="@+id/dateParty" />
+
+
+
+            <EditText
+                android:id="@+id/commentParty"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:minHeight="100dp"
+                android:inputType="text|textLongMessage"
+                android:layout_below="@+id/textView2"
+                android:layout_alignStart="@+id/textView2" />
+
+
+
+        </RelativeLayout>
+
+
+
+
+    <RelativeLayout
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/commentParty"
-        android:layout_below="@+id/commentParty"
+        android:layout_below="@+id/infoActivite"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:text="Annuler" />
+        android:layout_marginBottom="10dp"
+        android:id="@+id/relativeLayout2">
 
-    <Button
-        android:id="@+id/confirmButton"
-        android:layout_width="120dp"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/deleteButton"
-        android:layout_alignBottom="@+id/deleteButton"
-        android:layout_alignRight="@+id/commentParty"
-        android:text="Valider" />
+        <Button
+            android:id="@+id/deleteButton"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:textSize="24dp"
+            android:textColor="@android:color/white"
+            android:fontFamily="sans-serif-light"
+            android:background="@android:color/holo_red_dark"
+            android:text="Annuler" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/cpParty"
-        android:layout_below="@+id/datePickerButton"
-        android:layout_marginTop="25dp"
-        android:text="TextView" />
+        <Button
+            android:id="@+id/confirmButton"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            android:background="@android:color/holo_green_dark"
+            android:fontFamily="sans-serif-light"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:text="Valider" />
+     </RelativeLayout>
 
-    <EditText
-        android:id="@+id/dateParty"
-        android:layout_width="110dp"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/datePickerButton"
-        android:layout_alignBottom="@+id/datePickerButton"
-        android:layout_alignLeft="@+id/cpParty"
-        android:ems="10"
-        android:textStyle="italic"
-        android:textSize="12sp"
-        android:hint="Date de la soirée"
-        android:inputType="date" />
+        </RelativeLayout>
 
-    <Button
-        android:id="@+id/datePickerButton"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
-        android:background="@drawable/calendar"
-        android:layout_centerVertical="true"
-        android:layout_toRightOf="@+id/dateParty"
-        android:text="" />
+    </ScrollView>
 
-    <EditText
-        android:id="@+id/heureParty"
-        android:layout_width="110dp"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/heurePickerButton"
-        android:layout_alignBottom="@+id/heurePickerButton"
-        android:layout_toLeftOf="@+id/heurePickerButton"
-        android:ems="10"
-        android:textStyle="italic"
-        android:textSize="12sp"
-        android:hint="heure de la soirée"
-        android:inputType="date" />
 
 </RelativeLayout>

@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/entete"
+        android:background="@android:color/holo_green_dark">
+
+        <model.CircleView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"/>
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imgEntete"
+            android:background="@drawable/shop"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true" />
+
+    </RelativeLayout>
+
+
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_below="@+id/entete"
+            android:id="@+id/RelativeLayout"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true">
+
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/scrollView">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:id="@+id/relativeLayout"
+                android:layout_alignParentTop="true">
+
+
+                    <EditText
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPersonName"
+                        android:hint="Nom..."
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:id="@+id/nomUser"/>
+
+                    <EditText
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPersonName"
+                        android:hint="Prénom..."
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_alignParentEnd="true"
+                        android:id="@+id/prenUser"
+                        />
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPostalAddress"
+                        android:hint="Adresse..."
+                        android:id="@+id/adrUser"
+                        android:layout_marginBottom="10dp"
+                        android:layout_below="@+id/nomUser"
+                        android:layout_alignStart="@+id/nomUser"
+                        android:layout_alignEnd="@+id/prenUser" />
+
+
+                    <EditText
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:inputType="number"
+                        android:hint="code postale..."
+                        android:id="@+id/cpUser"
+                        android:layout_marginBottom="10dp"
+                        android:layout_below="@+id/adrUser"
+                        android:layout_alignStart="@+id/adrUser" />
+
+                    <EditText
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPostalAddress"
+                        android:hint="Ville..."
+                        android:id="@+id/villeUser"
+                        android:layout_below="@id/adrUser"
+                        android:layout_alignEnd="@+id/prenUser" />
+
+                    <EditText
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPostalAddress"
+                        android:hint="Pays..."
+                        android:id="@+id/paysUser"
+                        android:layout_marginBottom="10dp"
+                        android:layout_below="@id/cpUser"
+                        android:layout_alignStart="@+id/cpUser"
+                        android:layout_alignEnd="@+id/nomUser" />
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textEmailAddress"
+                        android:hint="E-mail..."
+                        android:id="@+id/mailUser"
+                        android:layout_marginBottom="10dp"
+                        android:layout_below="@+id/paysUser"
+                        android:layout_alignStart="@+id/nomUser"
+                        android:layout_alignEnd="@+id/prenUser" />
+
+                    <EditText
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPassword"
+                        android:hint="password..."
+                        android:id="@+id/passwordUser"
+                        android:layout_marginBottom="10dp"
+                        android:layout_below="@+id/mailUser"
+                        android:layout_alignStart="@+id/adrUser"
+                        android:layout_alignEnd="@+id/paysUser" />
+
+                    <EditText
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPassword"
+                        android:hint="Confirm password..."
+                        android:id="@+id/confPassUser"
+                        android:layout_below="@id/mailUser"
+                        android:layout_alignEnd="@+id/prenUser"
+                        android:layout_alignStart="@+id/prenUser" />
+
+                    <EditText
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:inputType="phone"
+                        android:hint="Téléphone..."
+                        android:id="@+id/telUser"
+                        android:layout_marginBottom="10dp"
+                        android:layout_below="@+id/passwordUser"
+                        android:layout_alignStart="@+id/adrUser"
+                        android:layout_alignEnd="@+id/paysUser" />
+
+            </RelativeLayout>
+
+            </ScrollView>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relativeLayout1"
+                android:layout_width="match_parent"
+                android:layout_marginRight="20dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/RelativeLayout"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp">
+
+                <Button
+                    android:id="@+id/annulerSelectDay"
+                    android:layout_width="130dp"
+                    android:layout_height="wrap_content"
+                    android:text="Annuler"
+                    android:textSize="24dp"
+                    android:textColor="@android:color/white"
+                    android:background="@android:color/holo_red_dark" />
+
+                <Button
+                    android:id="@+id/validCreateUser"
+                    android:layout_width="130dp"
+                    android:layout_height="wrap_content"
+                    android:text="Valider"
+                    android:textSize="24dp"
+                    android:textColor="@android:color/white"
+                    android:background="@android:color/holo_green_dark"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true" />
+
+            </RelativeLayout>
+</RelativeLayout>

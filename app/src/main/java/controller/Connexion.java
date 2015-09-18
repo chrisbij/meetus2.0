@@ -44,8 +44,20 @@ public class Connexion {
 		ArrayList<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
 		nameValuePairs.add(new BasicNameValuePair("IdParty", IDparty));
 		nameValuePairs.add(new BasicNameValuePair("prenom", prenom));
+
+
 		
 		return getObjFromUrl(url, nameValuePairs);
+	}
+
+
+	public JSONArray createNewUser(ArrayList<NameValuePair> arrayList){
+
+		return getObjFromUrl("http://meetus.noip.me/meetus/create_user.php", arrayList);
+	}
+
+	public JSONArray createNewActivite(ArrayList<NameValuePair> arrayList){
+		return getObjFromUrl("http://meetus.noip.me/meetus/create_activite.php", arrayList);
 	}
 	
 	

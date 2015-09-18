@@ -7,8 +7,10 @@ import org.json.JSONObject;
 
 import vue.AccueilVue;
 import controller.Connexion;
+import vue.CreateUser;
 import vue.Homepage1_0;
 import vue.MainVue;
+import vue.SelectSex;
 
 import android.os.Bundle;
 import android.os.Handler;
@@ -23,7 +25,7 @@ import android.content.Intent;
 public class MainActivity extends Activity {
 
 	public String url = "http://meetus.noip.me/meetus/connexion.php";
-	public Button connect;
+	public Button connect, createUser;
 	public EditText login;
 	public JSONObject json_data;
 	public String nom;
@@ -41,14 +43,16 @@ public class MainActivity extends Activity {
         
         login = (EditText)findViewById(R.id.login);
         connect = (Button)findViewById(R.id.connection);
+		createUser = (Button)findViewById(R.id.createUser);
         
-        connect.setOnClickListener(bonjour);
+        connect.setOnClickListener(logUser);
+		createUser.setOnClickListener(createNewUser);
         
         
     }
     
     
-    public OnClickListener bonjour = new OnClickListener() {
+    public OnClickListener logUser = new OnClickListener() {
 		
 		@Override
 		public void onClick(View v) {
@@ -85,6 +89,19 @@ public class MainActivity extends Activity {
 				
 			}
 			
+	};
+
+
+	public OnClickListener createNewUser = new OnClickListener() {
+		@Override
+		public void onClick(View view) {
+			try{
+				Intent intent = new Intent(getApplicationContext(), SelectSex.class);
+				startActivity(intent);
+			}catch (Exception e){
+
+			}
+		}
 	};
 
 	@Override

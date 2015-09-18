@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true">
+
+        <Button
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:text="Jour"
+            android:id="@+id/activiteJour"
+            android:fontFamily="sans-serif-light"
+            android:paddingTop="5dp"
+            android:drawableTop="@drawable/jour"
+            android:textColor="@android:color/white"
+            android:background="#234CA5"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true" />
+
+        <Button
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:text="Nuit"
+            android:fontFamily="sans-serif-light"
+            android:id="@+id/activiteNuit"
+            android:layout_marginStart="50dp"
+            android:paddingTop="5dp"
+            android:drawableTop="@drawable/nuit"
+            android:textColor="@android:color/white"
+            android:background="#570906"
+            android:layout_alignTop="@+id/activiteJour"
+            android:layout_toRightOf="@+id/activiteJour"/>
+
+    </RelativeLayout>
+</RelativeLayout>
