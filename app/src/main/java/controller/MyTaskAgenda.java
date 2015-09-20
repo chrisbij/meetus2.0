@@ -64,6 +64,8 @@ public class MyTaskAgenda extends AsyncTask<String, Void, MyResult> {
         // TODO Auto-generated method stub
 
 
+
+
         try{
             JSONArray jArray = co.getObjFromUrlTest(url, "BIJOU", "Chrislet");
             if(co.go == false){
