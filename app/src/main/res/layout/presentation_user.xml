@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:id="@+id/conteneurIdentite"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/trait"
+        android:paddingLeft="10dp"
+        android:layout_marginTop="0dp">
+
+        <TextView
+            android:id="@+id/identiteUser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Chrislet Bijou, "
+            android:fontFamily="sans-serif-light"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="#183152"/>
+
+        <TextView
+            android:id="@+id/ageUser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="25 ans"
+            android:fontFamily="sans-serif-light"
+            android:textSize="15sp"
+            android:layout_marginLeft="0dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/conteneurDateInscrit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/conteneurIdentite"
+        android:layout_marginTop="5dp"
+        android:paddingLeft="10dp">
+
+        <TextView
+            android:id="@+id/dateInscription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Inscrit depuis le 6 Février 2016"
+            android:fontFamily="sans-serif-light"
+            android:textSize="15sp"/>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/relatInfo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/conteneurDateInscrit"
+        android:layout_marginTop="20dp">
+
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Moi, en quelques mots"
+            android:fontFamily="sans-serif-light"
+            android:textStyle="bold"
+            android:textColor="#183152"
+            android:textSize="15sp"
+            android:paddingLeft="10dp"
+            android:layout_alignParentStart="true"/>
+
+        <View
+            android:id="@+id/trait2"
+            android:layout_margin="10dp"
+            android:layout_width="fill_parent"
+            android:layout_height="3px"
+            android:background="#183152"
+            android:layout_toRightOf="@+id/description" />
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/relatInfo"
+        android:id="@+id/relatDescp">
+
+        <TextView
+            android:id="@+id/information"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minHeight="120dp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:fontFamily="sans-serif-light"
+            android:textStyle="normal"
+            android:textSize="15sp"
+            android:layout_margin="5dp"
+            android:text=""/>
+
+        <View
+            android:id="@+id/trait3"
+            android:layout_marginLeft="5dp"
+            android:layout_width="3px"
+            android:layout_height="wrap_content"
+            android:minHeight="120dp"
+            android:background="#183152"/>
+
+    </RelativeLayout>
+</LinearLayout>
