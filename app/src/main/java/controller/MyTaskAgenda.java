@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.InputStream;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -40,7 +41,7 @@ public class MyTaskAgenda extends AsyncTask<String, Void, MyResult> {
     public Bitmap bm;
     public JSONObject json_data;
     public String srcPic;
-    public String url = "http://meetus.noip.me/meetus/connexion2.php";
+    public URL url = new URL("http://meetus.noip.me/meetus/connexion2.php");
 
     public ArrayList<String> idParty = new ArrayList<String>();
     public ArrayList<String> titreParty = new ArrayList<String>();
@@ -49,7 +50,7 @@ public class MyTaskAgenda extends AsyncTask<String, Void, MyResult> {
     public ArrayList<String> image = new ArrayList<String>() ;
 
 
-    public MyTaskAgenda(Context a, ListView view){
+    public MyTaskAgenda(Context a, ListView view) throws MalformedURLException {
         context = a;
         liste = view;
     }
@@ -68,9 +69,9 @@ public class MyTaskAgenda extends AsyncTask<String, Void, MyResult> {
 
         try{
             JSONArray jArray = co.getObjFromUrlTest(url, "BIJOU", "Chrislet");
+
             if(co.go == false){
                 super.cancel(true);
-
             }else{
                 for(int i=0;i<jArray.length();i++){
 

@@ -4,12 +4,12 @@ import android.app.Activity;
 import android.util.Log;
 import android.widget.Toast;
 
-import org.apache.http.NameValuePair;
-import org.apache.http.message.BasicNameValuePair;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
+import java.net.MalformedURLException;
+import java.util.HashMap;
 
 import vue.createActivites.CreateParty;
 
@@ -18,7 +18,7 @@ import vue.createActivites.CreateParty;
  */
 public class CreatePartyController extends CreateParty {
 
-    private ArrayList<NameValuePair> arrayList;
+    private HashMap<String, String> arrayList;
     private Connexion connexion = new Connexion();
     private JSONObject json_data = new JSONObject();
     private String resultat;
@@ -30,7 +30,7 @@ public class CreatePartyController extends CreateParty {
     String typeActivite,libelleActivite, adressActivite, villeActivite, cpActivite, dateActivite, heureActivite, pathFile;
     Activity myActivity;
 
-    public CreatePartyController(Activity activity) {
+    public CreatePartyController(Activity activity) throws MalformedURLException {
         myActivity = activity;
     }
 
@@ -39,16 +39,16 @@ public class CreatePartyController extends CreateParty {
 
          idMessage = 0;
 
-        arrayList = new ArrayList<NameValuePair>();
+        arrayList = new HashMap<>();
 
-        arrayList.add(new BasicNameValuePair("typeActivite", typeActivite));
-        arrayList.add(new BasicNameValuePair("libelleActivite", libelleActivite));
-        arrayList.add(new BasicNameValuePair("adressActivite", adressActivite));
-        arrayList.add(new BasicNameValuePair("villeActivite", villeActivite));
-        arrayList.add(new BasicNameValuePair("cpActivite", cpActivite));
-        arrayList.add(new BasicNameValuePair("dateActivite", dateActivite));
-        arrayList.add(new BasicNameValuePair("heureActivite", heureActivite));
-        arrayList.add(new BasicNameValuePair("pathFile", pathFile));
+        arrayList.put("typeActivite", typeActivite);
+        arrayList.put("libelleActivite", libelleActivite);
+        arrayList.put("adressActivite", adressActivite);
+        arrayList.put("villeActivite", villeActivite);
+        arrayList.put("cpActivite", cpActivite);
+        arrayList.put("dateActivite", dateActivite);
+        arrayList.put("heureActivite", heureActivite);
+        arrayList.put("pathFile", pathFile);
 
 
         new Thread(new Runnable() {

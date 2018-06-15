@@ -3,6 +3,7 @@ package controller;
 import java.io.BufferedInputStream;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -45,7 +46,8 @@ public class MyTask extends AsyncTask<String, Void, MyResult> {
 	public Bitmap bm;
 	public JSONObject json_data;
 	public String srcPic;
-	public String url = "http://meetus.noip.me/meetus/connexion2.php";
+	public URL url = new URL("http://meetus.noip.me/meetus/connexion2.php");
+
 
 	public ArrayList<String> idActivites = new ArrayList<String>();
 	public ArrayList<String> titreActivites = new ArrayList<String>();
@@ -56,7 +58,7 @@ public class MyTask extends AsyncTask<String, Void, MyResult> {
 	ProgressDialog mProgressDialog;
 	
 	
-	public MyTask(Context a, ListView view){
+	public MyTask(Context a, ListView view) throws MalformedURLException {
 		context = a;
 		liste = view;
 	}

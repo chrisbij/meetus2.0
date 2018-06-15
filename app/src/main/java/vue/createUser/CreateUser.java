@@ -11,12 +11,12 @@ import android.widget.Toast;
 import com.example.meetus.MainActivity;
 import com.example.meetus.R;
 
-import org.apache.http.NameValuePair;
-import org.apache.http.message.BasicNameValuePair;
-import org.json.JSONArray;
+
 import org.json.JSONObject;
 
-import java.util.ArrayList;
+
+import java.net.MalformedURLException;
+import java.util.HashMap;
 
 import controller.Connexion;
 import vue.MainVue;
@@ -26,7 +26,7 @@ import vue.MainVue;
  */
 public class CreateUser extends MainActivity {
 
-    ArrayList<NameValuePair> arrayList;
+    HashMap<String, String> arrayList;
 
     public JSONObject json_data;
 
@@ -38,6 +38,9 @@ public class CreateUser extends MainActivity {
     Button valider;
 
     TextView nomUser, prenomUser, adrUser, telUser, passwordUser, passConfirmUser, mailUser, cpUser, villeUser, paysUser;
+
+    public CreateUser() throws MalformedURLException {
+    }
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,7 +62,7 @@ public class CreateUser extends MainActivity {
 
         valider.setOnClickListener(addNewUser);
 
-        arrayList = new ArrayList<NameValuePair>();
+        arrayList = new HashMap<>();
 
     }
 
@@ -72,7 +75,7 @@ public class CreateUser extends MainActivity {
 
             if(!nomUser.getText().toString().equals("")){
                 nom = nomUser.getText().toString();
-                arrayList.add(new BasicNameValuePair("nomUser", nom));
+                arrayList.put("nomUser", nom);
             }else{
                 Toast erreur = Toast.makeText(getApplicationContext(), "Veuillez renseigner votre nom", Toast.LENGTH_SHORT);
                 erreur.show();
@@ -81,7 +84,7 @@ public class CreateUser extends MainActivity {
 
             if(!prenomUser.getText().toString().equals("")){
                 prenom = prenomUser.getText().toString();
-                arrayList.add(new BasicNameValuePair("prenUser", prenom));
+                arrayList.put("prenUser", prenom);
             }else{
                 Toast erreur = Toast.makeText(getApplicationContext(), "Veuillez renseigner votre pr�nom", Toast.LENGTH_SHORT);
                 erreur.show();
@@ -90,7 +93,7 @@ public class CreateUser extends MainActivity {
 
           /*  if(!adrUser.getText().toString().equals("")){
                 adresse = adrUser.getText().toString();
-                arrayList.add(new BasicNameValuePair("adrUser", adresse));
+                arrayList.put("adrUser", adresse));
             }else{
                 Toast erreur = Toast.makeText(getApplicationContext(), "Veuillez renseigner votre adresse", Toast.LENGTH_SHORT);
                 erreur.show();
@@ -99,7 +102,7 @@ public class CreateUser extends MainActivity {
 
             if(!telUser.getText().toString().equals("")){
                 tel = telUser.getText().toString();
-                arrayList.add(new BasicNameValuePair("telUser", tel));
+                arrayList.put("telUser", tel));
             }else{
                 Toast erreur = Toast.makeText(getApplicationContext(), "Veuillez renseigner votre num�ro de t�l�phone", Toast.LENGTH_SHORT);
                 erreur.show();
@@ -108,7 +111,7 @@ public class CreateUser extends MainActivity {
 
             if(!mailUser.getText().toString().equals("")){
                 mail = mailUser.getText().toString();
-                arrayList.add(new BasicNameValuePair("mailUser", mail));
+                arrayList.put("mailUser", mail));
             }else{
                 Toast erreur = Toast.makeText(getApplicationContext(), "Veuillez renseigner votre adresse mail", Toast.LENGTH_SHORT);
                 erreur.show();
@@ -126,7 +129,7 @@ public class CreateUser extends MainActivity {
             if(!passConfirmUser.getText().toString().equals("")){
                 if(passConfirmUser.getText().toString().equals(password)){
                     passConfirm = passConfirmUser.getText().toString();
-                    arrayList.add(new BasicNameValuePair("passUser", passConfirm));
+                    arrayList.put("passUser", passConfirm));
                 }else{
                     Toast erreur = Toast.makeText(getApplicationContext(), "Les mots de passes ne correspondent pas", Toast.LENGTH_SHORT);
                     erreur.show();
@@ -141,7 +144,7 @@ public class CreateUser extends MainActivity {
             if(!cpUser.getText().toString().equals("")){
                 if(cpUser.getText().toString().matches("^([0-9]{5}$)")) {
                     codePostale = cpUser.getText().toString();
-                    arrayList.add(new BasicNameValuePair("cpUser", codePostale));
+                    arrayList.put("cpUser", codePostale));
                 }else{
                     Toast erreur = Toast.makeText(getApplicationContext(), "Veuillez respecter le format du code postale.", Toast.LENGTH_SHORT);
                     erreur.show();
@@ -155,7 +158,7 @@ public class CreateUser extends MainActivity {
 
             if(!villeUser.getText().toString().equals("")){
                 ville = villeUser.getText().toString();
-                arrayList.add(new BasicNameValuePair("villeUser", ville));
+                arrayList.put("villeUser", ville));
             }else{
                 Toast erreur = Toast.makeText(getApplicationContext(), "Veuillez saisir une ville", Toast.LENGTH_SHORT);
                 erreur.show();
@@ -165,14 +168,14 @@ public class CreateUser extends MainActivity {
             if(!paysUser.getText().toString().equals("")){
 
                 pays = paysUser.getText().toString();
-                arrayList.add(new BasicNameValuePair("paysUser", pays));
+                arrayList.put("paysUser", pays));
             }else{
                 Toast erreur = Toast.makeText(getApplicationContext(), "Veuillez saisir un pays.", Toast.LENGTH_SHORT);
                 erreur.show();
                 return;
             }*/
 
-            arrayList.add(new BasicNameValuePair("sexeUser", "M"));
+            arrayList.put("sexeUser", "M");
 
             new Thread(new Runnable() {
                 @Override

@@ -25,6 +25,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.net.MalformedURLException;
 
 public class MainActivity extends Activity {
 
@@ -41,8 +42,11 @@ public class MainActivity extends Activity {
 	Connexion co = new Connexion();
 
     UploadFile uploadFile = new UploadFile();
-	
-    @Override
+
+	public MainActivity() throws MalformedURLException {
+	}
+
+	@Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.connexion);

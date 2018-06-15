@@ -9,6 +9,8 @@ import android.widget.Button;
 import com.example.meetus.MainActivity;
 import com.example.meetus.R;
 
+import java.net.MalformedURLException;
+
 /**
  * Created by bijou on 30/07/2015.
  */
@@ -17,6 +19,9 @@ public class Homepage1_0 extends MainActivity {
 
     Button rencontre;
     Button event;
+
+    public Homepage1_0() throws MalformedURLException {
+    }
 
 
     protected void onCreate(Bundle savedInstanceState) {

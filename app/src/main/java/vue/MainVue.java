@@ -2,6 +2,7 @@ package vue;
 
 
 
+import java.net.MalformedURLException;
 import java.util.ArrayList;
 
 
@@ -12,6 +13,7 @@ import controller.MyTask;
 import vue.profil.Home_profil;
 import vue.rechercheActivite.Homepage1_0;
 
+import android.annotation.TargetApi;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -21,6 +23,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -37,7 +40,7 @@ public class MainVue extends Activity {
 	public Drawable dra;
 	public MyTask asyncTask;
 	ImageView picProfil;
-	Button newSearch, refresh, agenda, infoParty, profil;
+	Button newSearch, refresh, agenda, activite, profil;
 	public int annee;
 	public ListView list;
 	public int jour;
@@ -49,12 +52,16 @@ public class MainVue extends Activity {
 
 	
 	
+	@TargetApi(Build.VERSION_CODES.LOLLIPOP)
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		
 		setContentView(R.layout.activity_main);
 
 		context = this;
+
+		activite = (Button)findViewById(R.id.activity);
+		activite.setBackground(getResources().getDrawable(R.drawable.btn_grey_selected, null));
 
 		newSearch = (Button)findViewById(R.id.newSearch);
 		refresh = (Button)findViewById(R.id.actualiser);
@@ -71,9 +78,13 @@ public class MainVue extends Activity {
 		list = (ListView)findViewById(R.id.lvListe);
 			
 		//picProfil = (ImageView)findViewById(R.id.list_image);
-	
-		asyncTask = new MyTask(context, list);
-		
+
+		try {
+			asyncTask = new MyTask(context, list);
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		}
+
 		asyncTask.execute("");
 		
 		
@@ -144,6 +155,7 @@ public class MainVue extends Activity {
 		@Override
 		public void onClick(View view) {
 			Intent intent = new Intent(getApplicationContext(), Agenda.class);
+			intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
 			startActivity(intent);
 		}
 	};
@@ -152,6 +164,7 @@ public class MainVue extends Activity {
 		@Override
 		public void onClick(View v) {
 			Intent intent = new Intent(getApplicationContext(), Home_profil.class);
+			intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
 			startActivity(intent);
 		}
 	};

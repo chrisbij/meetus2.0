@@ -16,6 +16,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.InputStream;
+import java.net.MalformedURLException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -42,7 +43,7 @@ public class GetActiviteInfo extends AsyncTask<String, Void, Void> {
 
     Connexion connexion = new Connexion();
 
-    public GetActiviteInfo(View a){
+    public GetActiviteInfo(View a) throws MalformedURLException {
         context = a;
     }
 
