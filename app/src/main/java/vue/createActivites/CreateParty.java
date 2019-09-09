@@ -22,8 +22,8 @@ import android.widget.EditText;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import org.apache.http.NameValuePair;
 
-import java.net.MalformedURLException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -36,7 +36,7 @@ import model.Ville;
 
 public class CreateParty extends Activity {
 
-
+    private ArrayList<NameValuePair> arrayList;
 
 	private int annee;
 	private int mois;
@@ -131,11 +131,7 @@ public class CreateParty extends Activity {
 
 		confirm.setOnClickListener(createActivite);
 
-        try {
-            createPartyController = new CreatePartyController(activity);
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
+        createPartyController = new CreatePartyController(activity);
 
         selectCatParty.setOnClickListener(selectCatPartyListener);
 

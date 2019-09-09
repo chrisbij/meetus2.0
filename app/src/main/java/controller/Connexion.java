@@ -1,11 +1,18 @@
 package controller;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.net.URLEncoder;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -18,6 +25,7 @@ import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.params.HttpConnectionParams;
 import org.json.JSONArray;
 
+import android.content.ContentValues;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.Log;
@@ -51,15 +59,25 @@ public class Connexion {
 	}
 
 
+    /**********************************************************************************************/
+    /**********************************************************************************************/
+
 	public JSONArray createNewUser(ArrayList<NameValuePair> arrayList){
 
 		return getObjFromUrl("http://meetus.noip.me/meetus/create_user.php", arrayList);
 	}
 
+
+    /**********************************************************************************************/
+    /**********************************************************************************************/
+
 	public JSONArray createNewActivite(ArrayList<NameValuePair> arrayList){
 		return getObjFromUrl("http://meetus.noip.me/meetus/create_activite.php", arrayList);
 	}
-	
+
+
+    /**********************************************************************************************/
+    /**********************************************************************************************/
 	
 	public JSONArray getPartyFromUrl(String url, String IDparty){
 		ArrayList<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
@@ -67,8 +85,31 @@ public class Connexion {
 		
 		return getObjFromUrl(url, nameValuePairs);
 	}
-	
-	
+
+    /**********************************************************************************************/
+    /**********************************************************************************************/
+
+    public JSONArray getInfoActivite(String idActivite){
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("idActivite", idActivite);
+
+        HashMap<String, String> myParams = new HashMap<>();
+
+        myParams.put("idActivite", idActivite);
+
+        return infoActivite("http://meetus.noip.me/meetus/chargementParty.php", myParams);
+    }
+
+
+
+
+
+    /**********************************************************************************************/
+    /**********************************************************************************************/
+    /**********************************************************************************************/
+
+
+
 	public JSONArray getObjFromUrl(String url, ArrayList<NameValuePair> nameValuePairs){
 		
 		
@@ -121,24 +162,105 @@ public class Connexion {
 		
 		return jArray;
 	}
-	
-	
-	
-	public JSONArray getAllFromUrl(String url){
-		
-		ArrayList<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
-		
-		return getObjFromUrl(url, nameValuePairs);
-	}
+
+
+
+
+    /**********************************************************************************************/
+    /**********************************************************************************************/
+    /**********************************************************************************************/
+
+
+
+	public JSONArray infoActivite(String urlInfo, HashMap<String, String> hashmap){
+
+        try{
+            URL url = new URL(urlInfo);
+            HttpURLConnection connection = (HttpURLConnection)url.openConnection();
+            connection.setRequestProperty("User-Agent", "");
+            connection.setRequestMethod("POST");
+            connection.setDoInput(true);
+			connection.setConnectTimeout(8000);
+			connection.setReadTimeout(8000);
+
+            OutputStream os = connection.getOutputStream();
+            BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(os, "UTF-8"));
+            writer.write(getQuery(hashmap));
+
+            writer.flush();
+            writer.close();
+            os.close();
+
+            InputStream inputStream = connection.getInputStream();
+
+            BufferedReader read = new BufferedReader(new InputStreamReader(inputStream, "ISO-8859-1"));
+            StringBuilder sb = new StringBuilder();
+            String line;
+            while((line=read.readLine()) != null){
+                sb.append(line);
+            }
+
+            inputStream.close();
+            result = sb.toString();
+        }catch(Exception e){
+			Log.e("Erro_infoActivite2", e.toString());
+        }
+
+        try{
+            jArray = new JSONArray(result);
+        }catch (Exception e){
+            Log.e("Erro_infoActivite2", e.toString());
+        }
+
+        return jArray;
+
+    }
+
+
+
+    /**********************************************************************************************/
+    /**********************************************************************************************/
+    /**********************************************************************************************/
+
+
+    public String getQuery(HashMap<String, String> params) throws UnsupportedEncodingException{
+
+        StringBuilder result = new StringBuilder();
+        boolean first = true;
+
+        for (Map.Entry<String, String> entry : params.entrySet()){
+            if (first)
+                first = false;
+            else
+                result.append("&");
+
+                result.append(URLEncoder.encode(entry.getKey(), "UTF-8"));
+                result.append("=");
+                result.append(URLEncoder.encode(entry.getValue(), "UTF-8"));
+        }
+
+        return result.toString();
+    }
+
+
+
+    /**********************************************************************************************/
+    /**********************************************************************************************/
+    /**********************************************************************************************/
+
+
 	
 	public static Bitmap getBitMap(String src){
 		try{
+
+			Log.e("Start2", "Début");
 			URL url = new URL(src);
 			HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 	        connection.setDoInput(true);
 	        connection.connect();
 	        InputStream input = connection.getInputStream();
 	        Bitmap myBitmap = BitmapFactory.decodeStream(input);
+			Log.e("End2","fin");
 	        return myBitmap;
 		}catch(Exception e){
 			
@@ -148,3 +270,4 @@ public class Connexion {
 	
 
 }
+

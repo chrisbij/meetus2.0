@@ -5,19 +5,20 @@ package vue;
 import java.util.ArrayList;
 
 
-
-
+import com.example.meetus.MainActivity;
 import com.example.meetus.R;
 
 import controller.MyTask;
+import vue.profil.Home_profil;
+import vue.rechercheActivite.Homepage1_0;
 
 import android.app.ActionBar;
+import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.DatePickerDialog;
-import android.app.Dialog;
+import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -26,28 +27,26 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.Toast;
 
-public class MainVue extends AccueilVue {
+public class MainVue extends Activity {
 
-	
+	public Activity activity = getParent();
 	public String srcPic;
-	public Bitmap bm; 
 	public Drawable dra;
 	public MyTask asyncTask;
 	ImageView picProfil;
-	Button newSearch, refresh, agenda, infoParty;
+	Button newSearch, refresh, agenda, infoParty, profil;
 	public int annee;
 	public ListView list;
 	public int jour;
 	public ArrayList<String> text = new ArrayList<String>();
 	public ArrayList<Bitmap> image = new ArrayList<Bitmap>() ;
 	public int mois;
-
+	public Context context;
 	String nomPrenomUser;
+
 	
 	
 	protected void onCreate(Bundle savedInstanceState) {
@@ -55,10 +54,7 @@ public class MainVue extends AccueilVue {
 		
 		setContentView(R.layout.activity_main);
 
-		Intent intent = getIntent();
-
-
-		nomPrenomUser = intent.getStringExtra("Nom") + intent.getStringExtra("Prenom");
+		context = this;
 
 		newSearch = (Button)findViewById(R.id.newSearch);
 		refresh = (Button)findViewById(R.id.actualiser);
@@ -69,9 +65,12 @@ public class MainVue extends AccueilVue {
 		agenda = (Button)findViewById(R.id.agenda);
 		agenda.setOnClickListener(openAgenda);
 
+		profil = (Button)findViewById(R.id.profil);
+		profil.setOnClickListener(openProfil);
+
 		list = (ListView)findViewById(R.id.lvListe);
 			
-		picProfil = (ImageView)findViewById(R.id.list_image);
+		//picProfil = (ImageView)findViewById(R.id.list_image);
 	
 		asyncTask = new MyTask(context, list);
 		
@@ -120,7 +119,9 @@ public class MainVue extends AccueilVue {
 				alertDialogBuilder.setPositiveButton("Oui", new DialogInterface.OnClickListener() {
 					@Override
 					public void onClick(DialogInterface dialogInterface, int i) {
-						MainVue.this.finish();
+						Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+						intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+						startActivity(intent);
 					}
 				});
 
@@ -143,6 +144,14 @@ public class MainVue extends AccueilVue {
 		@Override
 		public void onClick(View view) {
 			Intent intent = new Intent(getApplicationContext(), Agenda.class);
+			startActivity(intent);
+		}
+	};
+
+	public OnClickListener openProfil = new OnClickListener() {
+		@Override
+		public void onClick(View v) {
+			Intent intent = new Intent(getApplicationContext(), Home_profil.class);
 			startActivity(intent);
 		}
 	};

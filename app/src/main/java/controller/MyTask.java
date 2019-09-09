@@ -1,6 +1,8 @@
 package controller;
 
+import java.io.BufferedInputStream;
 import java.io.InputStream;
+import java.net.HttpURLConnection;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -12,13 +14,16 @@ import org.json.JSONObject;
 
 
 import vue.InfoPary;
-import vue.MyAdapterList;
+import vue.rechercheActivite.MyAdapterList;
 import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
+import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -29,10 +34,10 @@ import android.widget.Toast;
 public class MyTask extends AsyncTask<String, Void, MyResult> {
 	
 	Context context;
-	public String partyTitre;
-	public String partyLieu;
-	public String partyDate;
-	public String partyId;
+	public String activitesTitre;
+	public String activiteAdresse;
+	public String activitesDate;
+	public String activitesId;
 	Connexion co = new Connexion();
 	public ListView liste; 
 	public MyResult toto;
@@ -42,11 +47,13 @@ public class MyTask extends AsyncTask<String, Void, MyResult> {
 	public String srcPic;
 	public String url = "http://meetus.noip.me/meetus/connexion2.php";
 
-	public ArrayList<String> idParty = new ArrayList<String>();
-	public ArrayList<String> titreParty = new ArrayList<String>();
-	public ArrayList<String> lieuParty = new ArrayList<String>();
-	public ArrayList<String> dateParty = new ArrayList<String>();
-	public ArrayList<Bitmap> image = new ArrayList<Bitmap>() ;
+	public ArrayList<String> idActivites = new ArrayList<String>();
+	public ArrayList<String> titreActivites = new ArrayList<String>();
+	public ArrayList<String> adresseActivites = new ArrayList<String>();
+	public ArrayList<String> dateActivites = new ArrayList<String>();
+	public ArrayList<String> imageActivites = new ArrayList<String>() ;
+
+	ProgressDialog mProgressDialog;
 	
 	
 	public MyTask(Context a, ListView view){
@@ -55,48 +62,66 @@ public class MyTask extends AsyncTask<String, Void, MyResult> {
 	}
 	
 	
-	
+
+    protected void onPreExecute(){
+
+
+		mProgressDialog = ProgressDialog.show(context, "", "Chargement en cours...", true);
+		mProgressDialog.setCancelable(true);
+    }
+
 
 	@SuppressLint("SimpleDateFormat")
 	@SuppressWarnings("deprecation")
 	@Override
 	protected MyResult doInBackground(String... params) {
 		// TODO Auto-generated method stub
-		
+
+
 		
 		try{
 			JSONArray jArray = co.getObjFromUrlTest(url, "BIJOU", "Chrislet");
+
+
+            Log.e("TOTO", "toto");
+
 			if(co.go == false){
 			super.cancel(true);
 			
 			}else{
 				for(int i=0;i<jArray.length();i++){
-					
+
 					json_data = jArray.getJSONObject(i);
-					partyId = json_data.getString("PARTY_ID");
-					partyTitre = json_data.getString("PARTY_TITRE");
-					partyLieu = json_data.getString("VILLE_LIEU");
-					String date = json_data.getString("DATE_PARTY");
-					
+
+					activitesId = json_data.getString("id_activite");
+					activitesTitre = json_data.getString("libelle_activ");
+					activiteAdresse = json_data.getString("adresse_activ");
+					String date = json_data.getString("date_deb_act");
+
+
+
 					SimpleDateFormat dateTransform = new SimpleDateFormat("yyyy-MM-dd");
 					Date maDate = dateTransform.parse(date);
-					
-					
-					partyDate = maDate.toLocaleString();
-					
-					srcPic = "http://meetus.noip.me/meetus/media/images/image1.png";
+
+					activitesDate = new SimpleDateFormat("dd/MM/yyyy").format(maDate);
+					srcPic = json_data.getString("adresse_img_act");
+
+				/*	HttpURLConnection httpURLConnection = (HttpURLConnection)new URL(srcPic).openConnection();
+					is = httpURLConnection.getInputStream();
+
+                    final BufferedInputStream bufferedInputStream = new BufferedInputStream(is);
+					bm = BitmapFactory.decodeStream(is);*/
+
+                    Log.e("TATA", "tata");
 						
-						is = (InputStream) new URL(srcPic).getContent();
-						bm = BitmapFactory.decodeStream(is);
-						
-						idParty.add(""+partyId);
-						titreParty.add(""+partyTitre);
-						lieuParty.add(""+partyLieu);
-						dateParty.add(""+partyDate);
-						image.add(bm);
-					 	
-						toto = something();
+						idActivites.add(""+activitesId);
+						titreActivites.add(""+activitesTitre);
+						adresseActivites.add(""+activiteAdresse);
+						dateActivites.add(""+activitesDate);
+						imageActivites.add(srcPic);
 						}
+
+                toto = addInfo();
 			}
 		}catch(Exception e){
 			Log.e("img", e.toString());
@@ -111,12 +136,19 @@ public class MyTask extends AsyncTask<String, Void, MyResult> {
 		MyAdapterList adapter = new MyAdapterList(context,toto.getPartyID(), toto.getPartyTitre(), toto.getPartyLieu(), toto.getPartyDate(), toto.getImages());
 		
 
-		Log.e("eco", ""+ liste.getId());
+		Log.e("eco", "" + liste.getId());
 		
 		
 		liste.setAdapter(adapter);
-		
-		liste.setOnItemClickListener(new OnItemClickListener() {
+
+        if(mProgressDialog.isShowing()){
+            mProgressDialog.dismiss();
+        }
+
+		liste.setOnItemClickListener(getItemSelected);
+
+
+				/*new OnItemClickListener() {
 
 			@Override
 			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
@@ -127,14 +159,14 @@ public class MyTask extends AsyncTask<String, Void, MyResult> {
 				final String idParty = String.valueOf(liste.getItemAtPosition(arg2));
 				
 				/*Toast msg = Toast.makeText(context, s, Toast.LENGTH_LONG);
-				msg.show();*/
+				msg.show();* /
 				
 				Intent intent = new Intent(context, InfoPary.class);
 				intent.putExtra("ID_PARTY", idParty);
 				context.startActivity(intent);
 				
 			}
-		});
+		});*/
 		
 	}
 	
@@ -145,18 +177,36 @@ public class MyTask extends AsyncTask<String, Void, MyResult> {
 		Toast msg = Toast.makeText(context, errorConnect, Toast.LENGTH_LONG);
 		msg.show();
 	}
+
+
 	
 	
-	public MyResult something(){
-		ArrayList<String> idPartyList = idParty;
-		ArrayList<String> titrePartyList = titreParty;
-		ArrayList<String> lieuPartyList = lieuParty;
-		ArrayList<String> datePartyList = dateParty;
-		ArrayList<Bitmap> imageList = image;
+	public MyResult addInfo(){
+		ArrayList<String> idActiviteList = idActivites;
+		ArrayList<String> titreActiviteList = titreActivites;
+		ArrayList<String> adresseActiviteList = adresseActivites;
+		ArrayList<String> dateActiviteList = dateActivites;
+		ArrayList<String> imageActiviteList = imageActivites;
 		
-		return new MyResult(idPartyList, titrePartyList , lieuPartyList, datePartyList, imageList);
+		return new MyResult(idActiviteList, titreActiviteList , adresseActiviteList, dateActiviteList, imageActiviteList);
 	}
 	
-	
+	public OnItemClickListener getItemSelected = new OnItemClickListener() {
+		@Override
+		public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+			final String idParty = String.valueOf(liste.getItemAtPosition(i));
+
+
+
+				/*Toast msg = Toast.makeText(context, "bonjour", Toast.LENGTH_LONG);
+				msg.show();*/
+
+
+            Intent intent = new Intent(context, InfoPary.class);
+			intent.putExtra("ID_PARTY", idParty);
+            context.startActivity(intent);
+
+		}
+	};
 
 }

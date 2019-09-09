@@ -38,9 +38,6 @@ public class Test extends Activity {
 
     InputStream input;
 
-    public Test() throws MalformedURLException {
-    }
-
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
