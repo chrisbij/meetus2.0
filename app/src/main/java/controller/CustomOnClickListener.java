@@ -5,9 +5,8 @@ import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 
-import vue.SelectDay;
+import vue.rechercheActivite.SelectDay;
 
 /**
  * Created by Doudou on 16/08/2015.

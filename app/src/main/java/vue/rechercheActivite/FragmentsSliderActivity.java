@@ -1,8 +1,6 @@
-package vue;
+package vue.rechercheActivite;
 
-import android.app.Fragment;
 import android.content.Intent;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.PagerAdapter;
@@ -16,8 +14,8 @@ import com.example.meetus.R;
 import java.util.List;
 import java.util.Vector;
 
-import controller.CustomOnClickListener;
 import controller.MyPagerAdapter;
+import vue.MainVue;
 
 /**
  * Created by Doudou on 17/08/2015.
@@ -43,8 +41,8 @@ public class FragmentsSliderActivity extends FragmentActivity {
 
         // Ajout des Fragments dans la liste
         fragments.add(android.support.v4.app.Fragment.instantiate(this, PageGaucheFragment.class.getName()));
-        fragments.add(android.support.v4.app.Fragment.instantiate(this,PageMilieuFragement.class.getName()));
-        fragments.add(android.support.v4.app.Fragment.instantiate(this,PageDroiteFragment.class.getName()));
+        fragments.add(android.support.v4.app.Fragment.instantiate(this, PageMilieuFragement.class.getName()));
+        fragments.add(android.support.v4.app.Fragment.instantiate(this, PageDroiteFragment.class.getName()));
 
         // Création de l'adapter qui s'occupera de l'affichage de la liste de
         // Fragments

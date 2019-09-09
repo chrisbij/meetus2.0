@@ -1,6 +1,7 @@
 package vue;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -13,6 +14,7 @@ import android.widget.TextView;
 import com.example.meetus.R;
 
 import controller.MyTask;
+import vue.createActivites.CreateParty;
 
 /**
  * Created by Doudou on 02/09/2015.
@@ -34,6 +36,7 @@ public class Agenda extends Activity {
         textView = (TextView)findViewById(R.id.textView5);
 
         textView.setVisibility(View.INVISIBLE);
+
 
         myTask = new MyTask(context, listView);
 

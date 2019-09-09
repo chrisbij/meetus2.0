@@ -1,4 +1,4 @@
-package vue;
+package vue.rechercheActivite;
 
 import android.content.Intent;
 import android.os.Bundle;

@@ -17,6 +17,7 @@
             android:layout_centerVertical="true"/>
 
 
+
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -47,8 +48,7 @@
                 android:layout_height="290dp"
                 android:id="@+id/relativeLayout"
                 android:layout_alignParentTop="true"
-                android:layout_alignStart="@+id/relativeLayout1"
-                android:layout_alignEnd="@+id/relativeLayout1">
+                android:layout_marginStart="20dp">
 
                 <RadioGroup
                     android:id="@+id/radioGroup"
@@ -228,7 +228,7 @@
 
             <RelativeLayout
                 android:id="@+id/relativeLayout1"
-                android:layout_width="match_parent"
+                android:layout_width="300dp"
                 android:layout_marginRight="20dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
@@ -239,25 +239,15 @@
 
                 <Button
                     android:id="@+id/annulerSelectDay"
-                    android:layout_width="130dp"
-                    android:layout_height="wrap_content"
-                    android:text="Annuler"
-                    android:fontFamily="sans-serif-light"
-                    android:textSize="24dp"
-                    android:textColor="@android:color/white"
-                    android:background="@android:color/holo_red_dark" />
+                    style="@style/ButtonAnnule"
+                    android:background="@drawable/btn_annule"
+                    android:text="Annuler" />
 
                 <Button
                     android:id="@+id/retourHP111"
-                    android:layout_width="130dp"
-                    android:layout_height="wrap_content"
-                    android:text="Valider"
-                    android:fontFamily="sans-serif-light"
-                    android:textSize="24dp"
-                    android:textColor="@android:color/white"
-                    android:background="@android:color/holo_green_dark"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentEnd="true" />
+                    style="@style/ButtonValid"
+                    android:background="@drawable/btn_valid"
+                    android:text="Valider" />
 
             </RelativeLayout>
 

@@ -53,12 +53,10 @@
 
         <Button
             android:id="@+id/annulerHP111"
-            android:layout_width="130dp"
-            android:layout_height="wrap_content"
-            android:text="Annuler"
-            android:textSize="24dp"
-            android:textColor="@android:color/white"
-            android:background="@android:color/holo_red_dark" />
+            style="@style/ButtonAnnule"
+            android:textStyle="bold"
+            android:background="@drawable/btn_annule"
+            android:text="Annuler" />
 
         <Button
             android:id="@+id/retourHP111"
@@ -66,8 +64,9 @@
             android:layout_height="wrap_content"
             android:text="Retour"
             android:textSize="24dp"
+            android:textStyle="bold"
             android:textColor="@android:color/white"
-            android:background="@android:color/holo_blue_dark"
+            android:background="@drawable/btn_bleu_normal"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true" />
 

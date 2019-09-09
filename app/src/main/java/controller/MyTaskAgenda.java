@@ -12,7 +12,7 @@ import org.json.JSONObject;
 
 
 import vue.InfoPary;
-import vue.MyAdapterList;
+import vue.rechercheActivite.MyAdapterList;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
@@ -46,7 +46,7 @@ public class MyTaskAgenda extends AsyncTask<String, Void, MyResult> {
     public ArrayList<String> titreParty = new ArrayList<String>();
     public ArrayList<String> lieuParty = new ArrayList<String>();
     public ArrayList<String> dateParty = new ArrayList<String>();
-    public ArrayList<Bitmap> image = new ArrayList<Bitmap>() ;
+    public ArrayList<String> image = new ArrayList<String>() ;
 
 
     public MyTaskAgenda(Context a, ListView view){
@@ -95,7 +95,7 @@ public class MyTaskAgenda extends AsyncTask<String, Void, MyResult> {
                     titreParty.add(""+partyTitre);
                     lieuParty.add(""+partyLieu);
                     dateParty.add(""+partyDate);
-                    image.add(bm);
+                    image.add(srcPic);
 
                     toto = something();
                 }
@@ -154,7 +154,7 @@ public class MyTaskAgenda extends AsyncTask<String, Void, MyResult> {
         ArrayList<String> titrePartyList = titreParty;
         ArrayList<String> lieuPartyList = lieuParty;
         ArrayList<String> datePartyList = dateParty;
-        ArrayList<Bitmap> imageList = image;
+        ArrayList<String> imageList = image;
 
         return new MyResult(idPartyList, titrePartyList , lieuPartyList, datePartyList, imageList);
     }

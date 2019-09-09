@@ -1,4 +1,4 @@
-package vue;
+package vue.createUser;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -19,6 +19,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 import controller.Connexion;
+import vue.MainVue;
 
 /**
  * Created by bijou on 18/08/2015.

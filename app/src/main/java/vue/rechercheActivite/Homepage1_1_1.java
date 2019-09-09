@@ -1,11 +1,6 @@
-package vue;
+package vue.rechercheActivite;
 
-import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.drawable.ColorDrawable;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.PagerAdapter;
@@ -21,6 +16,7 @@ import java.util.Vector;
 
 import controller.CustomOnClickListener;
 import controller.MyPagerAdapter;
+import vue.MainVue;
 
 /**
  * Created by bijou on 07/08/2015.
@@ -37,17 +33,17 @@ public class Homepage1_1_1 extends FragmentActivity{
 
         super.setContentView(R.layout.test);
 
-        // Création de la liste de Fragments que fera défiler le PagerAdapter
+        // Cr?ation de la liste de Fragments que fera d?filer le PagerAdapter
         List fragments = new Vector();
 
         // fragments.add(android.support.v4.app.Fragment.instantiate(this, PageGaucheFragment.class.getName()));
 
         // Ajout des Fragments dans la liste
         fragments.add(android.support.v4.app.Fragment.instantiate(this, PageGaucheFragment.class.getName()));
-        fragments.add(android.support.v4.app.Fragment.instantiate(this,PageMilieuFragement.class.getName()));
-        fragments.add(android.support.v4.app.Fragment.instantiate(this,PageDroiteFragment.class.getName()));
+        fragments.add(android.support.v4.app.Fragment.instantiate(this, PageMilieuFragement.class.getName()));
+        fragments.add(android.support.v4.app.Fragment.instantiate(this, PageDroiteFragment.class.getName()));
 
-        // Création de l'adapter qui s'occupera de l'affichage de la liste de
+        // Cr?ation de l'adapter qui s'occupera de l'affichage de la liste de
         // Fragments
         this.mPagerAdapter = new MyPagerAdapter(super.getSupportFragmentManager(), fragments);
 

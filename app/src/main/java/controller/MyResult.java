@@ -9,10 +9,10 @@ public final class MyResult {
 	private ArrayList<String> partyTitre;
 	private ArrayList<String> partyLieu;
 	private ArrayList<String> partyDate;
-	private ArrayList<Bitmap> images;
+	private ArrayList<String> images;
 	private ArrayList<String> partyId;
 	
-	public MyResult(ArrayList<String> partyId, ArrayList<String> partyTitre, ArrayList<String> partyLieu, ArrayList<String> partyDate, ArrayList<Bitmap> images){
+	public MyResult(ArrayList<String> partyId, ArrayList<String> partyTitre, ArrayList<String> partyLieu, ArrayList<String> partyDate, ArrayList<String> images){
 		this.partyId = partyId;
 		this.partyTitre = partyTitre;
 		this.images = images;
@@ -24,7 +24,7 @@ public final class MyResult {
 		return partyLieu;
 	}
 	
-	public ArrayList<Bitmap> getImages(){
+	public ArrayList<String> getImages(){
 		return images;
 	}
 	

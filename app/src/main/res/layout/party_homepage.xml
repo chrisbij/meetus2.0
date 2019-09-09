@@ -1,87 +1,256 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent"
+    >
 
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="120dip"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/imageView1"
-        android:layout_marginTop="61dp"
-        android:layout_toRightOf="@+id/imageView1"
-        android:text="Large Text"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="55dip"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView1"
-        android:layout_below="@+id/textView1"
-        android:layout_marginTop="17dp"
-        android:text="TextView" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:id="@+id/entete"
+            android:background="@drawable/city"
+            android:layout_weight="1">
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="55dip"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/textView2"
-        android:layout_alignBottom="@+id/textView2"
-        android:layout_marginLeft="10dip"
-        android:layout_toRightOf="@+id/textView2"
-        android:text="TextView" />
 
-    <EditText
-        android:id="@+id/editText1"
-        android:layout_width="wrap_content"
-        android:layout_height="130dip"
-        android:layout_alignLeft="@+id/imageView1"
-        android:layout_alignRight="@+id/textView1"
-        android:layout_below="@+id/imageView1"
-        android:layout_marginTop="52dp"
-        android:ems="10"
-        android:inputType="textMultiLine" >
 
-        <requestFocus />
-    </EditText>
+        </RelativeLayout>
 
-    <ImageView
-        android:id="@+id/imageView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="26dp"
-        android:src="@drawable/android" />
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/scrollView3"
+            android:layout_weight="10"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true">
 
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="110dip"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/button1"
-        android:layout_alignBottom="@+id/button1"
-        android:layout_alignRight="@+id/editText1"
-        android:text="Participez" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingBottom="10dp">
 
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="110dip"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/editText1"
-        android:layout_below="@+id/editText1"
-        android:layout_marginTop="16dp"
-        android:text="Retour" />
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/titre">
 
-    <EditText
-        android:id="@+id/editText2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/imageView1"
-        android:layout_alignRight="@+id/editText1"
-        android:layout_below="@+id/imageView1"
-        android:layout_marginTop="10dp"
-        android:ems="10" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="VOYAGE A NY"
+                        android:fontFamily="sans-serif-light"
+                        android:id="@+id/titreActivite"
+                        android:textStyle="normal"
+                        android:layout_centerInParent="true"
+                        android:textSize="20sp"
+                        android:layout_alignParentStart="true" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@+id/userCreate"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="Crée par :"
+                        android:fontFamily="sans-serif-light"
+                        android:layout_toLeftOf="@+id/userCreate"
+                        android:textStyle="normal"
+                        android:layout_centerInParent="true"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="Chrislet BIJOU"
+                        android:fontFamily="sans-serif-light"
+                        android:id="@+id/userCreate"
+                        android:textStyle="bold"
+                        android:layout_centerInParent="true"
+                        android:textSize="15sp"
+                        android:clickable="true"
+                        android:textColor="#183152"
+                        android:layout_alignParentEnd="true"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_below="@+id/titre"
+                    android:id="@+id/relatAdresse">
+
+                    <TextView
+                        android:id="@+id/adresse"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="Adresse : "
+                        android:fontFamily="sans-serif-light"
+                        android:textStyle="bold"
+                        android:textColor="#183152"
+                        android:textSize="15sp"
+                        android:layout_alignParentStart="true"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/adresse"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:fontFamily="sans-serif-light"
+                        android:textStyle="normal"
+                        android:textSize="15sp"
+                        android:text="Upper East Side. New York, Ny."
+                        android:id="@+id/textAdresse"
+                        android:layout_alignStart="@+id/adresse" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/textAdresse"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:fontFamily="sans-serif-light"
+                        android:textStyle="normal"
+                        android:textSize="15sp"
+                        android:layout_marginTop="10dp"
+                        android:text="Du 26/09/2015 au 02/10/2015."
+                        android:id="@+id/date"
+                        android:layout_alignStart="@+id/textAdresse" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/date"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:fontFamily="sans-serif-light"
+                        android:textStyle="bold"
+                        android:textColor="#183152"
+                        android:textSize="15sp"
+                        android:layout_marginTop="10dp"
+                        android:text="Nombre de participant :"
+                        android:id="@+id/participant"
+                        android:layout_alignStart="@+id/date" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/date"
+                        android:layout_toEndOf="@+id/participant"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:fontFamily="sans-serif-light"
+                        android:textStyle="normal"
+                        android:textSize="15sp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="5dp"
+                        android:text="5"
+                        android:id="@+id/nbrParticipant" />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/participant"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:fontFamily="sans-serif-light"
+                        android:textStyle="bold"
+                        android:textColor="#183152"
+                        android:textSize="15sp"
+                        android:layout_marginTop="10dp"
+                        android:text="Prix/prs : 1280,00 Euros."
+                        android:id="@+id/prixParPers"
+                        android:layout_alignStart="@+id/participant" />
+
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/relatInfo"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/relatAdresse">
+
+                    <TextView
+                        android:id="@+id/description"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="30dp"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="Information"
+                        android:fontFamily="sans-serif-light"
+                        android:textStyle="bold"
+                        android:textColor="#183152"
+                        android:textSize="15sp"
+                        android:layout_alignParentStart="true"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/relatInfo"
+                    android:id="@+id/relatDescp">
+
+                    <TextView
+                        android:id="@+id/information"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:minHeight="100dp"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:fontFamily="sans-serif-light"
+                        android:textStyle="normal"
+                        android:textSize="15sp"
+                        android:layout_margin="5dp"
+                        android:text=""/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/relatDescp"
+                    android:layout_marginTop="20dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true">
+                    <Button
+                        android:id="@+id/retourHP"
+                        android:layout_width="120dp"
+                        android:layout_height="40dp"
+                        android:text="Retour"
+                        android:textSize="20sp"
+                        style="@style/ButtonBleu"
+                        android:background="@drawable/btn_bleu"/>
+
+                    <Button
+                        android:id="@+id/participerHP"
+                        android:layout_width="120dp"
+                        android:layout_height="40dp"
+                        android:text="Participer"
+                        android:textSize="18dp"
+                        style="@style/ButtonValid"
+                        android:background="@drawable/btn_valid"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true" />
+
+                </RelativeLayout>
+            </RelativeLayout>
+
+        </ScrollView>
+
+
+    </LinearLayout>
+
+
+
 
 </RelativeLayout>

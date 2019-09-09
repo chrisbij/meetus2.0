@@ -1,4 +1,4 @@
-package vue;
+package vue.rechercheActivite;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -24,6 +24,7 @@ import java.util.List;
 
 import controller.ControlSpinner;
 import model.CustomOnItemSelectedListener;
+import vue.MainVue;
 
 /**
  * Created by bijou on 11/08/2015.
