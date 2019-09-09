@@ -1,5 +1,12 @@
 package controller;
 
+import android.content.ContentValues;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.util.Log;
+
+import org.json.JSONArray;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.InputStream;
@@ -9,45 +16,31 @@ import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.net.URLConnection;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.NameValuePair;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.message.BasicNameValuePair;
-import org.apache.http.params.HttpConnectionParams;
-import org.json.JSONArray;
-
-import android.content.ContentValues;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.util.Log;
-
 public class Connexion {
-	
-	
+
 	private InputStream is = null;
 	private JSONArray jArray = null;
 	private String result ="";
 	
 	public Boolean go = false;
-	
+
+	/*public URL url = "http://meetus.noip.me/meetus/chargementParty.php"*/
+
 	public String src = "http://meetus.noip.me/meetus/media/images/image2.png";
 	
-	
+
 	
 	public Connexion(){
 		
 	}
 	
-	
+	/*
 	public JSONArray getObjFromUrlTest(String url, String IDparty, String prenom){
 		ArrayList<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
 		nameValuePairs.add(new BasicNameValuePair("IdParty", IDparty));
@@ -57,34 +50,34 @@ public class Connexion {
 		
 		return getObjFromUrl(url, nameValuePairs);
 	}
-
+*/
 
     /**********************************************************************************************/
     /**********************************************************************************************/
 
-	public JSONArray createNewUser(ArrayList<NameValuePair> arrayList){
+	/*public JSONArray createNewUser(ArrayList<NameValuePair> arrayList){
 
 		return getObjFromUrl("http://meetus.noip.me/meetus/create_user.php", arrayList);
 	}
-
+*/
 
     /**********************************************************************************************/
     /**********************************************************************************************/
 
-	public JSONArray createNewActivite(ArrayList<NameValuePair> arrayList){
+/*	public JSONArray createNewActivite(ArrayList<NameValuePair> arrayList){
 		return getObjFromUrl("http://meetus.noip.me/meetus/create_activite.php", arrayList);
 	}
-
+*/
 
     /**********************************************************************************************/
     /**********************************************************************************************/
 	
-	public JSONArray getPartyFromUrl(String url, String IDparty){
+	/*public JSONArray getPartyFromUrl(String url, String IDparty){
 		ArrayList<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
 		nameValuePairs.add(new BasicNameValuePair("IdParty", IDparty));
 		
 		return getObjFromUrl(url, nameValuePairs);
-	}
+	}*/
 
     /**********************************************************************************************/
     /**********************************************************************************************/
@@ -110,9 +103,9 @@ public class Connexion {
 
 
 
-	public JSONArray getObjFromUrl(String url, ArrayList<NameValuePair> nameValuePairs){
-		
-		
+/*	public JSONArray getObjFromUrl(String url, ArrayList<NameValuePair> nameValuePairs){
+
+
 		try{
 			HttpClient client = new  DefaultHttpClient();
 			HttpPost post = new HttpPost(url);
@@ -162,7 +155,7 @@ public class Connexion {
 		
 		return jArray;
 	}
-
+*/
 
 
 

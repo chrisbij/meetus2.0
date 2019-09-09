@@ -8,6 +8,8 @@ import android.widget.Button;
 
 import com.example.meetus.R;
 
+import vue.CreateParty;
+
 /**
  * Created by Doudou on 30/09/2015.
  */

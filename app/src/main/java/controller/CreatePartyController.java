@@ -4,14 +4,12 @@ import android.app.Activity;
 import android.util.Log;
 import android.widget.Toast;
 
-import org.apache.http.NameValuePair;
-import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-import vue.createActivites.CreateParty;
+import vue.CreateParty;
 
 /**
  * Created by Doudou on 13/09/2015.
@@ -32,6 +30,10 @@ public class CreatePartyController extends CreateParty {
 
     public CreatePartyController(Activity activity) {
         myActivity = activity;
+    }
+
+    public CreatePartyController() {
+
     }
 
 

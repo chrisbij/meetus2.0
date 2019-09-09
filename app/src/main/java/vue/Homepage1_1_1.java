@@ -21,6 +21,9 @@ import java.util.Vector;
 
 import controller.CustomOnClickListener;
 import controller.MyPagerAdapter;
+import vue.rechercheActivite.PageDroiteFragment;
+import vue.rechercheActivite.PageGaucheFragment;
+import vue.rechercheActivite.PageMilieuFragement;
 
 /**
  * Created by bijou on 07/08/2015.
@@ -37,17 +40,17 @@ public class Homepage1_1_1 extends FragmentActivity{
 
         super.setContentView(R.layout.test);
 
-        // Création de la liste de Fragments que fera défiler le PagerAdapter
+        // Creation de la liste de Fragments que fera defiler le PagerAdapter
         List fragments = new Vector();
 
         // fragments.add(android.support.v4.app.Fragment.instantiate(this, PageGaucheFragment.class.getName()));
 
         // Ajout des Fragments dans la liste
         fragments.add(android.support.v4.app.Fragment.instantiate(this, PageGaucheFragment.class.getName()));
-        fragments.add(android.support.v4.app.Fragment.instantiate(this,PageMilieuFragement.class.getName()));
-        fragments.add(android.support.v4.app.Fragment.instantiate(this,PageDroiteFragment.class.getName()));
+        fragments.add(android.support.v4.app.Fragment.instantiate(this, PageMilieuFragement.class.getName()));
+        fragments.add(android.support.v4.app.Fragment.instantiate(this, PageDroiteFragment.class.getName()));
 
-        // Création de l'adapter qui s'occupera de l'affichage de la liste de
+        // Creation de l'adapter qui s'occupera de l'affichage de la liste de
         // Fragments
         this.mPagerAdapter = new MyPagerAdapter(super.getSupportFragmentManager(), fragments);
 

@@ -28,8 +28,6 @@
         </activity>
         <activity android:name="vue.AccueilVue" >
         </activity>
-        <activity android:name="vue.CreateParty" >
-        </activity>
         <activity android:name="vue.InfoPary" >
         </activity>
         <activity

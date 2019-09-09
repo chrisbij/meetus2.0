@@ -16,16 +16,13 @@ import android.widget.EditText;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
-import org.apache.http.NameValuePair;
-import org.apache.http.message.BasicNameValuePair;
-
 import java.util.ArrayList;
 
 import controller.CreatePartyController;
 
 public class CreateParty extends Activity {
 
-    private ArrayList<NameValuePair> arrayList;
+
 
 	private int annee;
 	private int mois;
