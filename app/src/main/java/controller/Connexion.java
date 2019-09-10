@@ -40,17 +40,17 @@ public class Connexion {
 		
 	}
 	
-	/*
+
 	public JSONArray getObjFromUrlTest(String url, String IDparty, String prenom){
-		ArrayList<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
-		nameValuePairs.add(new BasicNameValuePair("IdParty", IDparty));
-		nameValuePairs.add(new BasicNameValuePair("prenom", prenom));
+		HashMap<String, String> nameValuePairs = new HashMap<>();
+		nameValuePairs.put("IdParty", IDparty);
+		nameValuePairs.put("prenom", prenom);
 
 
 		
 		return getObjFromUrl(url, nameValuePairs);
 	}
-*/
+
 
     /**********************************************************************************************/
     /**********************************************************************************************/
@@ -64,10 +64,10 @@ public class Connexion {
     /**********************************************************************************************/
     /**********************************************************************************************/
 
-/*	public JSONArray createNewActivite(ArrayList<NameValuePair> arrayList){
+	public JSONArray createNewActivite(HashMap arrayList){
 		return getObjFromUrl("http://meetus.noip.me/meetus/create_activite.php", arrayList);
 	}
-*/
+
 
     /**********************************************************************************************/
     /**********************************************************************************************/
@@ -103,22 +103,37 @@ public class Connexion {
 
 
 
-/*	public JSONArray getObjFromUrl(String url, ArrayList<NameValuePair> nameValuePairs){
+	public JSONArray getObjFromUrl(String urlInfo, HashMap hashmap){
 
 
 		try{
-			HttpClient client = new  DefaultHttpClient();
-			HttpPost post = new HttpPost(url);
-			post.setEntity(new UrlEncodedFormEntity(nameValuePairs));
-			
-			HttpConnectionParams.setConnectionTimeout(client.getParams(), 8000);
-			HttpConnectionParams.setSoTimeout(client.getParams(), 8000);
-			
-			HttpResponse response = client.execute(post);
-			HttpEntity entity = response.getEntity();
-			is = entity.getContent();
-			
-			go = true;
+            URL url = new URL(urlInfo);
+            HttpURLConnection connection = (HttpURLConnection)url.openConnection();
+            connection.setRequestProperty("User-Agent", "");
+            connection.setRequestMethod("POST");
+            connection.setDoInput(true);
+            connection.setConnectTimeout(8000);
+            connection.setReadTimeout(8000);
+
+            OutputStream os = connection.getOutputStream();
+            BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(os, "UTF-8"));
+            writer.write(getQuery(hashmap));
+
+            writer.flush();
+            writer.close();
+            os.close();
+
+            InputStream inputStream = connection.getInputStream();
+
+            BufferedReader read = new BufferedReader(new InputStreamReader(inputStream, "ISO-8859-1"));
+            StringBuilder sb = new StringBuilder();
+            String line;
+            while((line=read.readLine()) != null){
+                sb.append(line);
+            }
+
+            inputStream.close();
+            result = sb.toString();
 			
 		}catch(Exception e){
 			Log.e("connect", "Erreur lors de la connection : "+e.toString());
@@ -155,7 +170,7 @@ public class Connexion {
 		
 		return jArray;
 	}
-*/
+
 
 
 

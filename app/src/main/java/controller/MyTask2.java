@@ -42,7 +42,7 @@ public class MyTask2 extends AsyncTask<String, Void, MyResult> {
     public String s;
     public JSONObject json_data;
     public String srcPic;
-    public URL url= new URL("http://meetus.noip.me/connexion.php");
+    public String url= "http://meetus.noip.me/connexion.php";
 
     public ArrayList<String> idActivites = new ArrayList<String>();
     public ArrayList<String> titreActivites = new ArrayList<String>();
