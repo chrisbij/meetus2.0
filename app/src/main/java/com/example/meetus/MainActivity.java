@@ -6,12 +6,14 @@ import org.json.JSONObject;
 import controller.CreateDataBase;
 import controller.Connexion;
 import controller.UploadFile;
+import vue.MainVu2;
 import vue.MainVue;
 import vue.createUser.SelectSex;
 
 import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -48,9 +50,9 @@ public class MainActivity extends Activity {
         setContentView(R.layout.connexion);
         
         
-        login = (EditText)findViewById(R.id.login);
-        connect = (Button)findViewById(R.id.connection);
-		createUser = (Button)findViewById(R.id.createUser);
+        login = findViewById(R.id.login);
+        connect = findViewById(R.id.connection);
+		createUser = findViewById(R.id.createUser);
         
         connect.setOnClickListener(logUser);
 		createUser.setOnClickListener(createNewUser);
@@ -72,36 +74,36 @@ public class MainActivity extends Activity {
 
 
 			
-			new Thread(new Runnable() {
+			/*new Thread(new Runnable() {
 				
 				@Override
 				public void run() {
 					// TODO Auto-generated method stub
 				
-					try{
+					*/try{
 			//		 	JSONArray jArray = co.getObjFromUrlTest(url, "BIJOU", "Chrislet");
                         //uploadFile.uploadFileToServer();
-							runOnUiThread(new Runnable() {
+					/*		runOnUiThread(new Runnable() {
 								
 								@Override
 								public void run() {
 									// TODO Auto-generated method stub
 									/*Toast.makeText(MainActivity.this, "Bonjour Monsieur", Toast.LENGTH_SHORT).show();*/
 									
-									Intent intent = new Intent(getApplicationContext(),MainVue.class);
+									Intent intent = new Intent(getApplicationContext(), MainVue.class);
 									
 									startActivity(intent);
-								}
-							});
+						/*		}
+							});*/
 						
-					}catch(Exception e){
-						
+					}catch (Exception e){
+						Log.e("ident", e.toString());
 					}
 					
 				}
-			}).start();
+			/*}).start();
 				
-			}
+			}*/
 			
 	};
 
@@ -110,10 +112,11 @@ public class MainActivity extends Activity {
 		@Override
 		public void onClick(View view) {
 			try{
+
 				Intent intent = new Intent(getApplicationContext(), SelectSex.class);
 				startActivity(intent);
 			}catch (Exception e){
-
+				Log.e("create", "titi");
 			}
 		}
 	};

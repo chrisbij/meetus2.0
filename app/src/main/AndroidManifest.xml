@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.meetus"
     android:versionCode="1"
     android:versionName="1.0" >
@@ -11,7 +12,8 @@
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/CustomActionBarTheme" >
+        android:theme="@style/CustomActionBarTheme"
+        tools:ignore="GoogleAppIndexingWarning">
         <activity
             android:name=".MainActivity"
             android:configChanges="orientation|keyboardHidden"
@@ -26,34 +28,34 @@
             android:name="vue.MainVue"
             android:configChanges="keyboardHidden|orientation|screenSize" >
         </activity>
-        <activity android:name="vue.AccueilVue" >
-        </activity>
+        <!--<activity android:name="vue.AccueilVue" >
+        </activity>-->
         <activity android:name="vue.InfoPary" >
         </activity>
         <activity
-            android:name="vue.ChoixActivite" >
+            android:name="vue.createActivites.ChoixActivites" >
         </activity>
         <activity
-            android:name="vue.Homepage1_0">
+            android:name="vue.rechercheActivite.Homepage1_0">
         </activity>
         <activity
             android:name="vue.Homepage1_1_1">
         </activity>
         <activity
-            android:name="vue.Homepage1_1_2">
+            android:name="vue.rechercheActivite.Homepage1_1_2">
         </activity>
         <activity
             android:name="vue.SelectDay"
             android:windowSoftInputMode="stateHidden">
         </activity>
         <activity
-            android:name="vue.FragmentsSliderActivity">
+            android:name="vue.rechercheActivite.FragmentsSliderActivity">
         </activity>
         <activity
-            android:name="vue.SelectSex">
+            android:name="vue.createUser.SelectSex">
         </activity>
         <activity
-            android:name="vue.CreateUser">
+            android:name="vue.createUser.CreateUser">
         </activity>
         <activity
             android:name="vue.Agenda">
